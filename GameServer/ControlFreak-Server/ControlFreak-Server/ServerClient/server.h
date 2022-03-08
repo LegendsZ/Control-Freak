@@ -17,6 +17,7 @@ private:
 	std::thread listenThread;
 	bool isFindingConnections = false;
 	bool isListening = false;
+	int connectionsCount = 0;
 
 public:
 	std::vector<std::string> recieved;
@@ -111,6 +112,7 @@ public:
 
 					std::string welcomeMSG = "You have joined.";
 					send(client, welcomeMSG.c_str(), welcomeMSG.size() + 1, 0);
+					connectionsCount++;
 				}
 			}
 		}
@@ -161,5 +163,9 @@ public:
 			toRet += buffG[i];
 		}
 		return toRet;
+	}
+
+	int getConnectionsCount() {
+		return connectionsCount;
 	}
 };

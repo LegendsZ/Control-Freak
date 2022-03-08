@@ -16,7 +16,7 @@ void FprintStuffS(bool* updateScreenG, server* serverG) {
 	while (*updateScreenG) {
 		if (serverG->recieved.size() != 0) {
 			std::cout << "Console: " << serverG->recieved.front() << "\n> ";
-			serverG->recieved.erase(serverG->recieved.begin());
+			//serverG->recieved.erase(serverG->recieved.begin()); //dont remove for now
 		}
 	}
 }
@@ -39,14 +39,33 @@ int main() {
 	}
 	std::cout << "Created server on port [" << input << "]!\n";
 	std::cout << "Once you are done accepting, ";
-	system("pause");
+	
+	while (serverOBJ->getConnectionsCount() < 2) {
+		system("cls");
+		system("pause");
+	}
+	system("cls");
+
 	std::cout << "Stopped accepting clients!\n\n";
 	serverOBJ->endFindConnections();
 	serverOBJ->startListening();
 	bool* updateScreen = new bool;
-	std::thread updateScreenThread(FprintStuffS, updateScreen, serverOBJ);
+	//std::thread updateScreenThread(FprintStuffS, updateScreen, serverOBJ); //keep commented for now
 	//ABOVE CODE IS FOR SERVER INITIALIZATION
 
+	if (!serverOBJ->sendData(NULL, "READYTOSTART")) {
+		std::cout << "Failed to send message!";
+		return 0; //? idk how to error handle this
+	}
+
+	//figure out how to check if all players are ready
+	//
+	while (true) {
+		std::cout << "Console: " << serverOBJ->recieved.front() << "\n> ";
+		std::string first = serverOBJ->recieved.front();
+		serverOBJ->recieved.erase(serverOBJ->recieved.begin());
+		//if (first == "STARTGAME")
+	}
 
 
 
