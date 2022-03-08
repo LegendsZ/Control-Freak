@@ -146,9 +146,16 @@ public:
 	}
 
 	bool sendData(int index, std::string msgG) {
-		SOCKET clientSocket = master.fd_array[index];
-		char buffs[6] = "hello";
-		send(clientSocket, msgG.c_str(), msgG.size()+1, 0);
+		if (index == -1) {
+			for (int i = 0; i < connectionsCount; i++) {
+				SOCKET clientSocket = master.fd_array[i];
+				send(clientSocket, msgG.c_str(), msgG.size() + 1, 0);
+			}
+		}
+		else {
+			SOCKET clientSocket = master.fd_array[index];
+			send(clientSocket, msgG.c_str(), msgG.size() + 1, 0);
+		}
 		return true;
 	}
 

@@ -53,7 +53,7 @@ int main() {
 	//std::thread updateScreenThread(FprintStuffS, updateScreen, serverOBJ); //keep commented for now
 	//ABOVE CODE IS FOR SERVER INITIALIZATION
 
-	if (!serverOBJ->sendData(NULL, "READYTOSTART")) {
+	if (!serverOBJ->sendData(-1, "READYTOSTART")) {
 		std::cout << "Failed to send message!";
 		return 0; //? idk how to error handle this
 	}
