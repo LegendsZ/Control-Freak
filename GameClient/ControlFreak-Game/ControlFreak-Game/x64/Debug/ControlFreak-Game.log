@@ -1,0 +1,3 @@
+﻿  main.cpp
+C:\Users\WINDOWS\Documents\GitHub\Control-Freak\GameClient\ControlFreak-Game\ControlFreak-Game\Client\client.h(63,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  ControlFreak-Game.vcxproj -> C:\Users\WINDOWS\Documents\GitHub\Control-Freak\GameClient\ControlFreak-Game\x64\Debug\ControlFreak-Game.exe

@@ -21,7 +21,7 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{001b76fc-4599-4146-a985-4f50a9801c2e}</ProjectGuid>
+    <ProjectGuid>{a99387bf-2f54-4885-9e5a-e87e91048caf}</ProjectGuid>
     <RootNamespace>ControlFreakServer</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
@@ -139,7 +139,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Data\player.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Server\server.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Data\player.h" />
+    <ClInclude Include="Server\server.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
