@@ -7,13 +7,18 @@
 #define _WINSOCK_DEPRECATED_NO_WARNINGS
 #include <iostream> //debugging/testing purposes
 #include "Client/client.h"
+#include "Graphics/Window.h"
+#include "Graphics/windowComponentPTRContainer.h"
+
+#include <SDL.h>
+#undef main
+
 
 
 struct IPv4
 {
 	unsigned char b1, b2, b3, b4;
 };
-
 bool getMyIP(IPv4& myIP)
 {
 	char szBuffer[1024];
@@ -57,8 +62,35 @@ bool getMyIP(IPv4& myIP)
 
 
 
+
+
+
 int main() {
+
+
 	system("title CLIENT");
+	const unsigned int FRAMESCAP = 60;
+
+	windowComponentPTRContainer::windowPTR = new Window("Imaginary Shooter | Menu", 600, 500); 
+	
+	SDL_ShowWindow(windowComponentPTRContainer::windowPTR->m_Window);
+
+	GameObject* window = (GameObject*)windowComponentPTRContainer::windowPTR;
+
+	Uint32 iStart;
+	while (!windowComponentPTRContainer::windowPTR->isClosed()) {
+		iStart = SDL_GetTicks();
+		
+		SDL_Event event;
+		SDL_PollEvent(&event);
+
+		((Window*)window)->clear();
+		if (1000 / FRAMESCAP > SDL_GetTicks() - iStart) { //to cap frames
+			Uint32 toDelay = 1000 / FRAMESCAP - (SDL_GetTicks() - iStart);
+			SDL_Delay(toDelay);
+		}
+	}
+
 
 
 	std::string ipG;
