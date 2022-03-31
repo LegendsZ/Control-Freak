@@ -62,29 +62,40 @@ bool getMyIP(IPv4& myIP)
 
 
 
-
+void btnPlay(SDL_Event& event) {
+	std::cout << "there was an event!\n";
+}
 
 
 int main() {
-
-
 	system("title CLIENT");
 	const unsigned int FRAMESCAP = 60;
 
-	windowComponentPTRContainer::windowPTR = new Window("Imaginary Shooter | Menu", 600, 500); 
-	
+	windowComponentPTRContainer::windowPTR = new Window("Control Freak | Menu", 600, 500); 
 	SDL_ShowWindow(windowComponentPTRContainer::windowPTR->m_Window);
 
-	GameObject* window = (GameObject*)windowComponentPTRContainer::windowPTR;
+	windowComponentPTRContainer::backgroundPTR = new Rect(300, 500, 150, 0, 255, 0, 0, 1);//background for menu;
+	windowComponentPTRContainer::GameObjectList.push_back((GameObject*)windowComponentPTRContainer::backgroundPTR);
+	windowComponentPTRContainer::btnPlayPTR = new Button(
+		150,50,225,50,
+		255,102,0,0,
+		btnPlay
+	);
+	windowComponentPTRContainer::GameObjectList.push_back((GameObject*)windowComponentPTRContainer::btnPlayPTR);
 
 	Uint32 iStart;
 	while (!windowComponentPTRContainer::windowPTR->isClosed()) {
 		iStart = SDL_GetTicks();
 		
+		for (int i = 0; i < windowComponentPTRContainer::GameObjectList.size(); i++) {//draws all components
+			windowComponentPTRContainer::GameObjectList[i]->draw();
+		}
+
+		windowComponentPTRContainer::windowPTR->clear();
 		SDL_Event event;
 		SDL_PollEvent(&event);
+		windowComponentPTRContainer::btnPlayPTR->pollEvents(event);
 
-		((Window*)window)->clear();
 		if (1000 / FRAMESCAP > SDL_GetTicks() - iStart) { //to cap frames
 			Uint32 toDelay = 1000 / FRAMESCAP - (SDL_GetTicks() - iStart);
 			SDL_Delay(toDelay);
