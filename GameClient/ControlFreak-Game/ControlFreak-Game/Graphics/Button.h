@@ -10,9 +10,9 @@ public:
 	Button(Rect *rect, Text *text, void(*handler)(SDL_Event&));
 	Button(int w, int h, int x, int y, const std::string& img_path, void(*handler)(SDL_Event&));
 	Button(int w, int h, int x, int y, int r, int g, int b, int a, void(*handler)(SDL_Event&));
+	~Button();
 
-	bool pollEvents();
-	bool pollEvents(SDL_Event event);
+	void pollEvents(SDL_Event& event) override;
 
 	bool setPos(int x, int y);
 	int* getPos();

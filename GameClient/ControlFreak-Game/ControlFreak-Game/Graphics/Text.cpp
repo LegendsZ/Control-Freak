@@ -20,6 +20,10 @@ void Text::draw()
 	SDL_RenderCopy(m_Renderer, m_Texture, nullptr, &m_TextRect);
 }
 
+void Text::pollEvents(SDL_Event& event)
+{
+}
+
 SDL_Texture* Text::loadFont(SDL_Renderer* renderer, const std::string& font_path, int font_size, const std::string& message, const SDL_Color& color)
 {
 	TTF_Font* font = TTF_OpenFont(font_path.c_str(), font_size);
@@ -28,7 +32,7 @@ SDL_Texture* Text::loadFont(SDL_Renderer* renderer, const std::string& font_path
 		std::cerr << "Failed to load font!\n";
 		return nullptr;
 	}
-	SDL_Surface* textSurface = TTF_RenderText_Solid(font, message.c_str(), color);
+	SDL_Surface* textSurface = TTF_RenderText_Shaded(font, message.c_str(), color, { 0xff,0xff,0xff });
 	if (!textSurface) {
 		std::cerr << "Failed to create text surface!\n";
 		return nullptr;
@@ -65,8 +69,9 @@ bool Text::setRenderer(SDL_Renderer* renderer)
 	return true;
 }
 
-bool Text::setText(std::string& message)
+bool Text::setText(std::string message)
 {
+	text = message;
 	TTF_CloseFont(m_Font);
 	SDL_DestroyTexture(m_Texture);
 	m_Texture = loadFont(m_Renderer, m_FontPath, m_FontSize, message, m_Color);

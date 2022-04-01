@@ -36,6 +36,9 @@
     <ClCompile Include="Graphics\windowComponentPTRContainer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Graphics\Textbox.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ServerClient\client.h">
@@ -63,6 +66,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="fileLocations.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\Textbox.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

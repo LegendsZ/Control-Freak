@@ -8,9 +8,7 @@ public:
 	~Rect();
 
 	void draw() override;
-
-	bool pollEvents();
-	bool pollEvents(SDL_Event event);
+	void pollEvents(SDL_Event& event) override;
 
 	int* getPos();
 	bool setPos(int x, int y);

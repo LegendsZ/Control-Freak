@@ -9,10 +9,13 @@
 
 class Window : GameObject{
 public:
+	static int mousePos[2];
+
+
 	Window(const std::string& title, int width, int height);
 	~Window();
 
-	void pollEvents(const SDL_Event& event);
+	void pollEvents(SDL_Event& event) override;
 	void clear() const;
 
 	bool isClosed() const;
@@ -31,13 +34,14 @@ public:
 	Mix_Chunk* click_effect = nullptr;
 
 	SDL_Window* m_Window = nullptr;
+
+	int m_Width = 800;
+	int m_Height = 600;
 private:
 	bool init();
 
 
 	std::string m_Title;
-	int m_Width = 800;
-	int m_Height = 600;
 	bool m_isClosed = false;
 
 	int m_R = 0;

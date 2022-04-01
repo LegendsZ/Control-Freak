@@ -9,6 +9,7 @@ public:
 	~Text();
 
 	void draw() override;
+	void pollEvents(SDL_Event& event) override;
 
 	SDL_Texture* loadFont(SDL_Renderer *renderer, const std::string& font_path, int font_size, const std::string& message, const SDL_Color& color);
 
@@ -17,7 +18,8 @@ public:
 	SDL_Renderer* getRenderer();
 	bool setRenderer(SDL_Renderer* renderer);
 
-	bool setText(std::string& message);
+	bool setText(std::string message);
+	std::string text;
 
 	mutable SDL_Rect m_TextRect;
 

@@ -1,6 +1,7 @@
 #include "Window.h"
 
 SDL_Renderer* Window::renderer = nullptr;
+int Window::mousePos[2] = { 0,0 };
 
 Window::Window(const std::string& title, int width, int height):
 m_Title(title), m_Width(width), m_Height(height)
@@ -24,7 +25,7 @@ Window::~Window() {
 	SDL_Quit();
 }
 
-void Window::pollEvents(const SDL_Event &event)
+void Window::pollEvents(SDL_Event &event)
 {
 	switch (event.type) {
 	case SDL_QUIT:

@@ -44,25 +44,14 @@ void Rect::draw()
 }
 
 
-bool Rect::pollEvents()
-{
-	if (m_Handler == nullptr) {
-		return false;
-	}
-	SDL_Event event;
-	if (SDL_PollEvent(&event)) {
-		m_Handler(event);
-	}
-	return true;
-}
 
-bool Rect::pollEvents(SDL_Event event)
+
+void Rect::pollEvents(SDL_Event& event)
 {
 	if (m_Handler == nullptr) {
-		return false;
+		return;
 	}
 	m_Handler(event);
-	return true;
 }
 
 int* Rect::getPos()

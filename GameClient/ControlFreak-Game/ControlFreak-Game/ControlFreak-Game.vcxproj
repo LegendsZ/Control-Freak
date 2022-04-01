@@ -148,6 +148,7 @@
     <ClCompile Include="Graphics\Button.cpp" />
     <ClCompile Include="Graphics\Rect.cpp" />
     <ClCompile Include="Graphics\Text.cpp" />
+    <ClCompile Include="Graphics\Textbox.cpp" />
     <ClCompile Include="Graphics\Window.cpp" />
     <ClCompile Include="Graphics\windowComponentPTRContainer.cpp" />
     <ClCompile Include="main.cpp" />
@@ -159,6 +160,7 @@
     <ClInclude Include="Graphics\GameObject.h" />
     <ClInclude Include="Graphics\Rect.h" />
     <ClInclude Include="Graphics\Text.h" />
+    <ClInclude Include="Graphics\Textbox.h" />
     <ClInclude Include="Graphics\Window.h" />
     <ClInclude Include="Graphics\windowComponentPTRContainer.h" />
     <ClInclude Include="ServerClient\client.h" />

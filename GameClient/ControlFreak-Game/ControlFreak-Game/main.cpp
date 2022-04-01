@@ -63,6 +63,24 @@ bool getMyIP(IPv4& myIP)
 
 
 
+void pollEvents() {
+	SDL_Event event;
+	SDL_PollEvent(&event);
+
+
+	if (event.type == SDL_MOUSEMOTION) {
+		Window::mousePos[0] = event.motion.x <= windowComponentPTRContainer::windowPTR->m_Width? event.motion.x : Window::mousePos[0];
+		Window::mousePos[1] = event.motion.y <= windowComponentPTRContainer::windowPTR->m_Height ? event.motion.y : Window::mousePos[1];
+	}
+
+
+	for (int i = 0; i < windowComponentPTRContainer::GameObjectList.size(); i++) {//draws all components
+		windowComponentPTRContainer::GameObjectList[i]->pollEvents(event);
+	}
+}
+
+
+
 void btnPlay(SDL_Event& event) {
 	//std::cout << "there was an event!\n";
 }
@@ -75,12 +93,9 @@ int main() {
 	windowComponentPTRContainer::windowPTR = new Window("Control Freak | Menu", 600, 500); 
 	SDL_ShowWindow(windowComponentPTRContainer::windowPTR->m_Window);
 
-
-
 	//windowComponentPTRContainer::backgroundPTR = new Rect(300, 500, 150, 0, 255, 0, 0, 1);//background for menu;
 	windowComponentPTRContainer::backgroundPTR = new Rect(600,500,0,0,bkgdMenu_path);//background for menu;
 	windowComponentPTRContainer::GameObjectList.push_back((GameObject*)windowComponentPTRContainer::backgroundPTR);
-
 
 	windowComponentPTRContainer::btnPlayPTR = new Button(
 		175,75,213,25,
@@ -88,8 +103,6 @@ int main() {
 		btnPlay
 	);
 	windowComponentPTRContainer::GameObjectList.push_back((GameObject*)windowComponentPTRContainer::btnPlayPTR);
-
-
 
 	windowComponentPTRContainer::btnCreditPTR = new Button(
 		175, 75, 213, 400, //y = 175?
@@ -99,29 +112,37 @@ int main() {
 	windowComponentPTRContainer::GameObjectList.push_back((GameObject*)windowComponentPTRContainer::btnCreditPTR);
 
 
+	windowComponentPTRContainer::txtIPPTR = new Textbox(
+		300, 50,
+		150, 125,
+		windowComponentPTRContainer::windowPTR->renderer,
+		comicFont_path, 40,
+		"IP=",
+		[]() {
+			//lambda
+			//do some checking and sort ip/port somewhere
+			windowComponentPTRContainer::txtIPPTR->m_Text->setText("PORT=");
+			windowComponentPTRContainer::txtIPPTR->m_Text->text = "";
+		}
+	);
+	windowComponentPTRContainer::GameObjectList.push_back((GameObject*)windowComponentPTRContainer::txtIPPTR);
+
 
 	Uint32 iStart;
 	while (!windowComponentPTRContainer::windowPTR->isClosed()) {
 		iStart = SDL_GetTicks();
-		
+
 		for (int i = 0; i < windowComponentPTRContainer::GameObjectList.size(); i++) {//draws all components
 			windowComponentPTRContainer::GameObjectList[i]->draw();
 		}
 
 		windowComponentPTRContainer::windowPTR->clear();
-		SDL_Event event;
-		SDL_PollEvent(&event);
-		windowComponentPTRContainer::btnPlayPTR->pollEvents(event);
-
+		pollEvents();
 		if (1000 / FRAMESCAP > SDL_GetTicks() - iStart) { //to cap frames
 			Uint32 toDelay = 1000 / FRAMESCAP - (SDL_GetTicks() - iStart);
 			SDL_Delay(toDelay);
 		}
 	}
-
-
-
-
 
 	//NETWORK STUFF BELOW
 	std::string ipG;

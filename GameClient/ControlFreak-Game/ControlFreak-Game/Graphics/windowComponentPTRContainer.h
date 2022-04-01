@@ -1,5 +1,5 @@
 #pragma once
-#include "Button.h"
+#include "Textbox.h"
 #include <vector>
 
 //ptrs to hold window components
@@ -13,4 +13,6 @@ public:
 	static Button* btnPlayPTR;
 	static Button* btnResetPTR;
 	static Button* btnCreditPTR;
+	static Textbox* txtIPPTR;
+
 };

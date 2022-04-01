@@ -39,20 +39,16 @@ Button::Button(int w, int h, int x, int y, int r, int g, int b, int a, void(*han
 	m_Text = nullptr;
 }
 
-bool Button::pollEvents()
+Button::~Button()
 {
-	SDL_Event event; //may add more components to button class so keeping it scalable.
-	if (SDL_PollEvent(&event)) {
-		//m_Rect->pollEvents(event);
-		m_Handler(event);
-	}
-	return true;
+	m_Rect->~Rect();
+	m_Text->~Text();
 }
 
-bool Button::pollEvents(SDL_Event event)
+
+void Button::pollEvents(SDL_Event& event)
 {
 	m_Handler(event);
-	return true;
 }
 
 bool Button::setPos(int x, int y)
