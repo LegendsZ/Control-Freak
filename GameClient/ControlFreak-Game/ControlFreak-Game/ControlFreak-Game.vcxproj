@@ -153,8 +153,8 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\..\..\source\repos\ImaginaryShooter_SDL2\ImaginaryShooter_SDL2\fileLocations.h" />
     <ClInclude Include="Client\client.h" />
+    <ClInclude Include="fileLocations.h" />
     <ClInclude Include="Graphics\Button.h" />
     <ClInclude Include="Graphics\GameObject.h" />
     <ClInclude Include="Graphics\Rect.h" />

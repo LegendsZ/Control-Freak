@@ -6,8 +6,11 @@
 class windowComponentPTRContainer {
 private:
 public:
+	static std::vector<GameObject*> GameObjectList;
+
 	static Window* windowPTR;
 	static Rect* backgroundPTR;
 	static Button* btnPlayPTR;
-	static std::vector<GameObject*> GameObjectList;
+	static Button* btnResetPTR;
+	static Button* btnCreditPTR;
 };

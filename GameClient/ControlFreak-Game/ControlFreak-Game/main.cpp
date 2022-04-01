@@ -9,6 +9,7 @@
 #include "Client/client.h"
 #include "Graphics/Window.h"
 #include "Graphics/windowComponentPTRContainer.h"
+#include "fileLocations.h"
 
 #include <SDL.h>
 #undef main
@@ -63,7 +64,7 @@ bool getMyIP(IPv4& myIP)
 
 
 void btnPlay(SDL_Event& event) {
-	std::cout << "there was an event!\n";
+	//std::cout << "there was an event!\n";
 }
 
 
@@ -74,14 +75,30 @@ int main() {
 	windowComponentPTRContainer::windowPTR = new Window("Control Freak | Menu", 600, 500); 
 	SDL_ShowWindow(windowComponentPTRContainer::windowPTR->m_Window);
 
-	windowComponentPTRContainer::backgroundPTR = new Rect(300, 500, 150, 0, 255, 0, 0, 1);//background for menu;
+
+
+	//windowComponentPTRContainer::backgroundPTR = new Rect(300, 500, 150, 0, 255, 0, 0, 1);//background for menu;
+	windowComponentPTRContainer::backgroundPTR = new Rect(600,500,0,0,bkgdMenu_path);//background for menu;
 	windowComponentPTRContainer::GameObjectList.push_back((GameObject*)windowComponentPTRContainer::backgroundPTR);
+
+
 	windowComponentPTRContainer::btnPlayPTR = new Button(
-		150,50,225,50,
-		255,102,0,0,
+		175,75,213,25,
+		bkgdbtnPlay_path,
 		btnPlay
 	);
 	windowComponentPTRContainer::GameObjectList.push_back((GameObject*)windowComponentPTRContainer::btnPlayPTR);
+
+
+
+	windowComponentPTRContainer::btnCreditPTR = new Button(
+		175, 75, 213, 400, //y = 175?
+		bkgdbtnCredit_path,
+		btnPlay
+	);
+	windowComponentPTRContainer::GameObjectList.push_back((GameObject*)windowComponentPTRContainer::btnCreditPTR);
+
+
 
 	Uint32 iStart;
 	while (!windowComponentPTRContainer::windowPTR->isClosed()) {
@@ -104,6 +121,9 @@ int main() {
 
 
 
+
+
+	//NETWORK STUFF BELOW
 	std::string ipG;
 	std::cout << "IP: ";
 	std::getline(std::cin, ipG);

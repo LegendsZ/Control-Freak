@@ -59,10 +59,10 @@
     <ClInclude Include="Graphics\windowComponentPTRContainer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\..\source\repos\ImaginaryShooter_SDL2\ImaginaryShooter_SDL2\fileLocations.h">
+    <ClInclude Include="Graphics\GameObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Graphics\GameObject.h">
+    <ClInclude Include="fileLocations.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
