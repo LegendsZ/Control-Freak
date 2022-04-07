@@ -71,5 +71,8 @@
     <ClInclude Include="Graphics\Textbox.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Client\ClientData.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

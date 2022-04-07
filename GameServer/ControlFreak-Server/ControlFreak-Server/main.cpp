@@ -7,6 +7,33 @@
 #include "Server/server.h"
 
 
+
+void forAll(server* serverOBJ, std::string toFind) {
+	bool allPlayersReady = false;
+	std::vector<std::string> readyIPList;
+	bool x = serverOBJ->getConnectionsCount() > 0;
+	bool y = !(readyIPList.size() < serverOBJ->getConnectionsCount());
+	while (serverOBJ->getConnectionsCount() > 0 && readyIPList.size() < serverOBJ->getConnectionsCount()) {
+		if (serverOBJ->recieved.size() > 0) {
+			if (serverOBJ->recieved.back().find(toFind) != std::string::npos) {
+				std::string tempIP = serverOBJ->recieved.back().substr(0, serverOBJ->recieved.back().size() - toFind.length() - 1);
+				bool exists = false;
+				for (int i = 0; i < readyIPList.size(); i++) {
+					if (readyIPList[i] == tempIP) {
+						exists = true;
+						break;
+					}
+				}
+				if (!exists) {
+					readyIPList.push_back(tempIP);
+				}
+			}
+		}
+		//maybe a sleep?
+	}
+}
+
+
 int main()
 {
 	system("title SERVER");
@@ -25,10 +52,9 @@ int main()
 	system("pause");
 	serverOBJ->endFindConnections();
 	std::cout << "Stopped accepting clients!\n\n";
-
 	serverOBJ->startListening();
 
-	bool allPlayersReady = false;
+	/*bool allPlayersReady = false;
 	int* readyPlayers = new int();
 	*readyPlayers = 0;
 	while (serverOBJ->getConnectionsCount() > 0 && !allPlayersReady) {
@@ -50,11 +76,15 @@ int main()
 		}
 		//maybe a sleep?
 	}
-
+	delete readyPlayers;*/
+	forAll(serverOBJ, "ISREADY");
+	serverOBJ->sendData(-1, "GAMESTART");
+	forAll(serverOBJ, "GAMESTARTED");
 
 	while (serverOBJ->getConnectionsCount() > 0) {
 		if (serverOBJ->recieved.size() > 0) {
-			if (serverOBJ->recieved.back().find("ISDCING")) {
+			std::string s = serverOBJ->recieved.back();
+			if (serverOBJ->recieved.back().find("ISDCING") != std::string::npos) {
 				std::string tempIP = serverOBJ->recieved.back().substr(0, serverOBJ->recieved.back().size() - 8);
 				for (int i = 0; i < serverOBJ->playerList.size(); i++) {
 					if (serverOBJ->playerList[i]->getIP() == tempIP) {

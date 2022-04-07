@@ -7,5 +7,7 @@ Button* windowComponentPTRContainer::btnResetPTR = nullptr;
 Button* windowComponentPTRContainer::btnCreditPTR = nullptr;
 Textbox* windowComponentPTRContainer::txtIPPTR = nullptr;
 
+Rect* windowComponentPTRContainer::gameBackgroundPTR = nullptr;
+
 
 std::vector<GameObject*> windowComponentPTRContainer::GameObjectList;

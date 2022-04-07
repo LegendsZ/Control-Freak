@@ -15,4 +15,6 @@ public:
 	static Button* btnCreditPTR;
 	static Textbox* txtIPPTR;
 
+
+	static Rect* gameBackgroundPTR;
 };

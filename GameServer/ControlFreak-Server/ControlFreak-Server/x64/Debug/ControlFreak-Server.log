@@ -1,8 +1,2 @@
-﻿  server.cpp
-C:\Users\WINDOWS\Documents\GitHub\Control-Freak\GameServer\ControlFreak-Server\ControlFreak-Server\Server\server.cpp(121,21): warning C4018: '<': signed/unsigned mismatch
-C:\Users\WINDOWS\Documents\GitHub\Control-Freak\GameServer\ControlFreak-Server\ControlFreak-Server\Server\server.cpp(137,54): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\WINDOWS\Documents\GitHub\Control-Freak\GameServer\ControlFreak-Server\ControlFreak-Server\Server\server.cpp(143,55): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\WINDOWS\Documents\GitHub\Control-Freak\GameServer\ControlFreak-Server\ControlFreak-Server\Server\server.cpp(164,26): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-  main.cpp
-  Generating Code...
+﻿  main.cpp
   ControlFreak-Server.vcxproj -> C:\Users\WINDOWS\Documents\GitHub\Control-Freak\GameServer\ControlFreak-Server\x64\Debug\ControlFreak-Server.exe
