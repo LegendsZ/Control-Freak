@@ -133,12 +133,12 @@ void server::listenLoop() {
 
 bool server::sendData(int index, std::string msgG) {
 	if (index >= 0 && index < playerList.size()) {
-		SOCKET clientSocket = master.fd_array[index];
+		SOCKET clientSocket = master.fd_array[index+1];
 		send(clientSocket, msgG.c_str(), msgG.size() + 1, 0);
 		return true;
 	}
 	else if (index == -1) {
-		for (int i = 0; i < playerList.size(); i++) {
+		for (int i = 1; i < playerList.size()+1; i++) {
 			SOCKET clientSocket = master.fd_array[i];
 			send(clientSocket, msgG.c_str(), msgG.size() + 1, 0);
 		}

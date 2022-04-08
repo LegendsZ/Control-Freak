@@ -7,7 +7,7 @@
 
 //images
 const std::string bkgdMenu_path = "res/bkgdMenu.png";
-const std::string bkgdGameMenu_path = "res/bkgdMenu.png";
+const std::string bkgdGameMenu_path = "res/bkgdGame.png";
 const std::string bkgdbtnPlay_path = "res/bkgdbtnPlay.png";
 const std::string bkgdbtnReset_path = "res/bkgdbtnReset.png";
 const std::string bkgdbtnCredit_path = "res/bkgdbtnCredit.png";

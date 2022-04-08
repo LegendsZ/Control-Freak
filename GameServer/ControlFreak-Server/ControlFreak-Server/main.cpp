@@ -15,8 +15,10 @@ void forAll(server* serverOBJ, std::string toFind) {
 	bool y = !(readyIPList.size() < serverOBJ->getConnectionsCount());
 	while (serverOBJ->getConnectionsCount() > 0 && readyIPList.size() < serverOBJ->getConnectionsCount()) {
 		if (serverOBJ->recieved.size() > 0) {
+			std::string abc = serverOBJ->recieved.back();
 			if (serverOBJ->recieved.back().find(toFind) != std::string::npos) {
-				std::string tempIP = serverOBJ->recieved.back().substr(0, serverOBJ->recieved.back().size() - toFind.length() - 1);
+				std::string blah = serverOBJ->recieved.back();
+				std::string tempIP = serverOBJ->recieved.back().substr(0, serverOBJ->recieved.back().size() - toFind.length());
 				bool exists = false;
 				for (int i = 0; i < readyIPList.size(); i++) {
 					if (readyIPList[i] == tempIP) {
@@ -28,6 +30,7 @@ void forAll(server* serverOBJ, std::string toFind) {
 					readyIPList.push_back(tempIP);
 				}
 			}
+			serverOBJ->recieved.pop_back();
 		}
 		//maybe a sleep?
 	}
