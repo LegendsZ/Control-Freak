@@ -5,19 +5,16 @@
 */
 #include <iostream> //debugging/testing purposes
 #include "Server/server.h"
-
+const std::string version = "1.0.0.0";
 
 
 void forAll(server* serverOBJ, std::string toFind) {
-	bool allPlayersReady = false;
 	std::vector<std::string> readyIPList;
-	bool x = serverOBJ->getConnectionsCount() > 0;
-	bool y = !(readyIPList.size() < serverOBJ->getConnectionsCount());
 	while (serverOBJ->getConnectionsCount() > 0 && readyIPList.size() < serverOBJ->getConnectionsCount()) {
 		if (serverOBJ->recieved.size() > 0) {
-			std::string abc = serverOBJ->recieved.back();
+			//std::string abc = serverOBJ->recieved.back();
 			if (serverOBJ->recieved.back().find(toFind) != std::string::npos) {
-				std::string blah = serverOBJ->recieved.back();
+				//std::string blah = serverOBJ->recieved.back();
 				std::string tempIP = serverOBJ->recieved.back().substr(0, serverOBJ->recieved.back().size() - toFind.length());
 				bool exists = false;
 				for (int i = 0; i < readyIPList.size(); i++) {
@@ -39,7 +36,8 @@ void forAll(server* serverOBJ, std::string toFind) {
 
 int main()
 {
-	system("title SERVER");
+	std::string titleString = "title Control Freak SERVER v" + version;
+	system(titleString.c_str());
 	
 	std::string portG;
 	std::cout << "PORT: ";
@@ -80,6 +78,53 @@ int main()
 		//maybe a sleep?
 	}
 	delete readyPlayers;*/
+
+
+	{
+		std::vector<std::string> readyIPList;
+		while (serverOBJ->getConnectionsCount() > 0 && readyIPList.size() < serverOBJ->getConnectionsCount()) {
+			if (serverOBJ->recieved.size() > 0) {
+				if (serverOBJ->recieved.back().find("V") != std::string::npos) {
+					std::string tempIP = serverOBJ->recieved.back().substr(0, serverOBJ->recieved.back().find("V")); //serverOBJ->recieved.back().size() - 1
+					bool exists = false;
+					for (int i = 0; i < readyIPList.size(); i++) {
+						if (readyIPList[i] == tempIP) {
+							exists = true;
+							break;
+						}
+					}
+					if (!exists) {
+						std::string clientVersion = serverOBJ->recieved.back().substr(serverOBJ->recieved.back().find("V")+1, std::string::npos); //serverOBJ->recieved.back().size() - 1
+						int ind = -1;
+						if (clientVersion.compare(version)) {
+							for (int i = 0; i < serverOBJ->playerList.size(); i++) {
+								if (serverOBJ->playerList[i]->getIP() == tempIP) {
+									serverOBJ->sendData(i, "VERSIONGOOD");
+									ind = i;
+								}
+							}
+							if (ind == -1) {
+								std::cout << "Something went wrong during version check!";
+							}
+						}
+						else {
+							serverOBJ->sendData(ind, "VERSIONBAD");
+						}
+						readyIPList.push_back(tempIP);
+					}
+				}
+				serverOBJ->recieved.pop_back();
+			}
+			//maybe a sleep?
+		}
+
+
+
+
+	}
+
+
+
 	forAll(serverOBJ, "ISREADY");
 	serverOBJ->sendData(-1, "GAMESTART");
 	forAll(serverOBJ, "GAMESTARTED");

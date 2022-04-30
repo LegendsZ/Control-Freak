@@ -14,6 +14,7 @@
 #include <SDL.h>
 #undef main
 
+const std::string version = "1.0.0.0";
 
 
 void pollEvents() {
@@ -59,17 +60,18 @@ void txtIPPEnter() {
 		IPv4 myIPV4TEMP;
 		getMyIP(myIPV4TEMP);
 		Connector::myIPV4 = std::to_string(myIPV4TEMP.b1) + "." + std::to_string(myIPV4TEMP.b2) + "." + std::to_string(myIPV4TEMP.b3) + "." + std::to_string(myIPV4TEMP.b4);
-		Connector::clientOBJ->sendData(Connector::myIPV4 + "ISREADY");
+		//Connector::clientOBJ->sendData(Connector::myIPV4 + "ISREADY");
+		Connector::clientOBJ->sendData(Connector::myIPV4 + "V"+version);
 
 
-		int index = 0;
+		/*int index = 0;
 		for (int i = 0; i < windowComponentPTRContainer::GameObjectList.size(); i++) {
 			if (windowComponentPTRContainer::GameObjectList[i] == (GameObject*)windowComponentPTRContainer::txtIPPTR) {
 				index = i;
 				break;
 			}
 		}
-		windowComponentPTRContainer::GameObjectList.erase(windowComponentPTRContainer::GameObjectList.begin() + index);
+		windowComponentPTRContainer::GameObjectList.erase(windowComponentPTRContainer::GameObjectList.begin() + index);*/
 	}
 	
 	windowComponentPTRContainer::txtIPPTR->m_Text->text = "";
@@ -77,7 +79,10 @@ void txtIPPEnter() {
 
 
 int main() {
-	system("title CLIENT");
+	std::string titleString = "title Control Freak GAME v" + version;
+	system(titleString.c_str());
+
+
 	const unsigned int FRAMESCAP = 60; //set to ur screen refresh rate
 	bool gameActive = false;
 
@@ -129,7 +134,21 @@ int main() {
 					//game checks
 				}
 				else {
-					if (Connector::clientOBJ->recieved.back() == "GAMESTART") { //check for whatever data input
+					if (Connector::clientOBJ->recieved.back() == "VERSIONGOOD") { //check for whatever data input
+						Connector::clientOBJ->sendData(Connector::myIPV4 + "ISREADY");
+						int index = 0;
+						for (int i = 0; i < windowComponentPTRContainer::GameObjectList.size(); i++) {
+							if (windowComponentPTRContainer::GameObjectList[i] == (GameObject*)windowComponentPTRContainer::txtIPPTR) {
+								index = i;
+								break;
+							}
+						}
+						windowComponentPTRContainer::GameObjectList.erase(windowComponentPTRContainer::GameObjectList.begin() + index);
+					}else if (Connector::clientOBJ->recieved.back() == "VERSIONBAD") { //check for whatever data input
+						std::cout << "\n\nVersion is out of date! Please update.\n\n";
+						system("pause");
+					}
+					else if (Connector::clientOBJ->recieved.back() == "GAMESTART") { //check for whatever data input
 						windowComponentPTRContainer::GameObjectList.clear();
 						windowComponentPTRContainer::gameBackgroundPTR = new Rect(600, 500, 0, 0, bkgdGameMenu_path);//background for menu;
 						windowComponentPTRContainer::GameObjectList.push_back((GameObject*)windowComponentPTRContainer::gameBackgroundPTR);
