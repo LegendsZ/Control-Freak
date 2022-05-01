@@ -5,6 +5,7 @@ Text::Text(SDL_Renderer* renderer, const std::string& font_path, int font_size, 
 {
 	m_Texture = loadFont(renderer, font_path, font_size, message, color);
 	SDL_QueryTexture(m_Texture, nullptr, nullptr, &m_TextRect.w, &m_TextRect.h);
+	setText(message);
 }
 
 Text::~Text()

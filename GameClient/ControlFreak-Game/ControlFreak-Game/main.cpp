@@ -112,8 +112,8 @@ int main() {
 		300, 50,
 		150, 125,
 		windowComponentPTRContainer::windowPTR->renderer,
-		comicFont_path, 40,
-		"IP=",
+		comicFont_path, 35,
+		"                       ",
 		txtIPPEnter
 	);
 	windowComponentPTRContainer::GameObjectList.push_back((GameObject*)windowComponentPTRContainer::txtIPPTR);

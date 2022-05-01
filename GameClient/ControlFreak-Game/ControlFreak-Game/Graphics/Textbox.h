@@ -27,7 +27,7 @@ public:
 			//SDL_SetTextInputRect(&m_Text->m_TextRect);
 		}
 		else if (m_Selected && event.type == SDL_TEXTINPUT) {
-			m_Text->setText(m_Text->text + event.text.text);
+			m_Text->setText(m_Text->text.substr(1) + event.text.text);
 			//m_Text->setPos(m_Text->getPos()[0] - 1, m_Text->getPos()[1]);
 			//m_Text->m_FontSize+=50;
 		}
