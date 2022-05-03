@@ -1,5 +1,4 @@
 #include "Button.h"
-
 Button::Button(int w, int h, int x, int y, int r, int g, int b, int a, SDL_Renderer* renderer, const std::string& font_path, int font_size, const std::string& message, const SDL_Color& color, void(*handler)(SDL_Event&) ) :
 	m_Handler(handler)
 {
@@ -48,7 +47,26 @@ Button::~Button()
 
 void Button::pollEvents(SDL_Event& event)
 {
-	m_Handler(event);
+
+	int x = event.motion.x;
+	int y = event.motion.y;
+
+	if (pointIn(x, y))
+	{
+		m_Handler(event);
+	}
+
+	/*if (pointIn(x, y))
+	{
+		switch (event.type)
+		{
+		case SDL_MOUSEBUTTONUP:
+			Lobby lobby(Window::renderer, "TEXT", 600, 800);
+			lobby.draw();
+			std::cout << "Button Clicked\n";
+
+		}
+	}*/
 }
 
 bool Button::setPos(int x, int y)
@@ -71,4 +89,14 @@ void Button::draw()
 	if (m_Text != nullptr) {
 		m_Text->draw();
 	}
+}
+
+bool Button::pointIn(int x, int y)
+{
+
+	if ((x >= m_Rect->getPos()[0] && x <= m_Rect->getPos()[0] + m_Rect->m_Width) && y >= m_Rect->getPos()[1] && y <= m_Rect->getPos()[1] + m_Rect->m_Height)
+	{
+		return true;
+	}
+	return false;
 }

@@ -2,7 +2,8 @@
 
 #include "Rect.h"
 #include "Text.h"
-
+#include "..\\Screens\Lobby.h"
+#include "Window.h"
 class Button : GameObject{
 public:
 	Button(int w, int h, int x, int y, int r, int g, int b, int a, SDL_Renderer* renderer, const std::string& font_path, int font_size, const std::string& message, const SDL_Color& color, void(*handler)(SDL_Event&));
@@ -15,6 +16,7 @@ public:
 	void pollEvents(SDL_Event& event) override;
 
 	bool setPos(int x, int y);
+	bool pointIn(int x, int y);
 	int* getPos();
 
 

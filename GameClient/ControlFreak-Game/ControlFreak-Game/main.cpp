@@ -10,7 +10,8 @@
 #include "Graphics/Window.h"
 #include "Graphics/windowComponentPTRContainer.h"
 #include "fileLocations.h"
-
+#include "Screens/Starting.h"
+#include "Screens/Credits.h"
 #include <SDL.h>
 #undef main
 
@@ -78,7 +79,55 @@ void txtIPPEnter() {
 }
 
 
-int main() {
+int main()  {
+
+	std::string titleString = "Title Control Freak Game v" + version;
+	system(titleString.c_str());
+
+	const unsigned int FRAMESCAP = 60; //set to ur screen refresh rate
+	bool gameActive = false;
+	bool STARTACTIVE = true;
+	SDL_Event event;
+	Window window("Control Freak | Menu", 1000, 1000);
+	SDL_ShowWindow(window.m_Window);
+	Starting mainpage(window.m_Window, window.renderer, window.m_Width, window.m_Height);
+	Lobby lobby(window.m_Window, window.renderer, window.m_Width, window.m_Height);
+	Credits credit(window.m_Window, window.renderer, window.m_Width, window.m_Height);
+	
+	while (true)
+	{
+		while (SDL_PollEvent(&event))
+		{
+			if (mainpage.status)
+			{
+				mainpage.draw();
+				mainpage.pollEvents(event);
+			}
+			if (mainpage.getLobbyStatus())
+			{
+				lobby.draw();
+				lobby.pollEvents(event);
+			}
+			if (mainpage.getCreditsStatus())
+			{
+				credit.draw();
+				
+			}
+			window.clear();
+		}
+	}
+
+
+
+
+
+
+
+
+
+
+
+	/*
 	std::string titleString = "title Control Freak GAME v" + version;
 	system(titleString.c_str());
 
@@ -174,6 +223,6 @@ int main() {
 	Connector::clientOBJ->sendData(Connector::myIPV4 + "ISDCING");
 	//garbage collections
 	Connector::clientOBJ->Terminate();
-
+	*/
 	return 0;
 }
