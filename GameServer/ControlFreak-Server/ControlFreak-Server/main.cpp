@@ -55,30 +55,6 @@ int main()
 	std::cout << "Stopped accepting clients!\n\n";
 	serverOBJ->startListening();
 
-	/*bool allPlayersReady = false;
-	int* readyPlayers = new int();
-	*readyPlayers = 0;
-	while (serverOBJ->getConnectionsCount() > 0 && !allPlayersReady) {
-		if (serverOBJ->recieved.size() > 0) {
-			if (serverOBJ->recieved.back().find("ISREADY") != std::string::npos) {
-				std::string tempIP = serverOBJ->recieved.back().substr(0, serverOBJ->recieved.back().size() - 8);
-				for (int i = 0; i < serverOBJ->playerList.size(); i++) {
-					if (serverOBJ->playerList[i]->getIP() == tempIP && !serverOBJ->playerList[i]->isReady()) {
-						serverOBJ->playerList[i]->setReady(true);
-						*readyPlayers = *readyPlayers + 1;
-						break;
-					}
-				}
-				serverOBJ->recieved.pop_back();
-				if (*readyPlayers == serverOBJ->playerList.size()) {
-					break;
-				}
-			}
-		}
-		//maybe a sleep?
-	}
-	delete readyPlayers;*/
-
 
 	{
 		std::vector<std::string> readyIPList;
@@ -117,10 +93,6 @@ int main()
 			}
 			//maybe a sleep?
 		}
-
-
-
-
 	}
 
 
