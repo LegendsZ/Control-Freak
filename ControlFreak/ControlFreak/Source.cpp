@@ -40,13 +40,11 @@ int main() {
 			{
 				mainpage.draw();
 				mainpage.pollEvents(event);
-			}
-			if (mainpage.getLobbyStatus())
+			}else if (mainpage.getLobbyStatus())
 			{
 				lobby.draw();
 				lobby.pollEvents(event);
-			}
-			if (mainpage.getCreditsStatus())
+			}else if (mainpage.getCreditsStatus())
 			{
 				credit.draw();
 

@@ -7,6 +7,19 @@ ReadyButton::ReadyButton(SDL_Window* window, int w, int h, int x, int y, int r, 
 	m_Text = nullptr;
 }
 
+ReadyButton::ReadyButton(SDL_Window* window, int w, int h, int x, int y, const std::string& filePath)
+{
+	_status = false;
+	m_Rect = new Rect(w, h, x, y, filePath);
+	m_Text = nullptr;
+}
+
+ReadyButton::~ReadyButton()
+{
+	m_Rect->~Rect();
+	m_Text->~Text();
+}
+
 bool ReadyButton::inPoint(int x, int y)
 {
 	if ((x >= m_Rect->getPos()[0] && x <= m_Rect->getPos()[0] + m_Rect->m_Width) && y >= m_Rect->getPos()[1] && y <= m_Rect->getPos()[1] + m_Rect->m_Height)

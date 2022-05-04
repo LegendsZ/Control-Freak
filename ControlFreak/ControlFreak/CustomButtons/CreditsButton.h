@@ -8,7 +8,8 @@ class CreditsButton : GameObject
 {
 public:
 	CreditsButton(SDL_Window* window, int w, int h, int x, int y, int r, int g, int b, int a);
-	CreditsButton();
+	CreditsButton(SDL_Window* window, int w, int h, int x, int y, const std::string& filePath);
+	~CreditsButton();
 	Rect* m_Rect;
 	Text* m_Text;
 	bool _status;

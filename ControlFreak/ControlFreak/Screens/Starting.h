@@ -15,7 +15,8 @@ public:
 
 	ReadyButton* playButton;
 	CreditsButton* credits;
-	Text* gameTitle;
+	//Text* gameTitle;
+	Rect* background;
 	int _w;
 	int _h;
 	bool status = true;
