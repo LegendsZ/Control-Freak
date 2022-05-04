@@ -145,17 +145,24 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CustomButtons\CreditsButton.cpp" />
+    <ClCompile Include="CustomButtons\ReadyButton.cpp" />
     <ClCompile Include="Graphics\Button.cpp" />
     <ClCompile Include="Graphics\Rect.cpp" />
     <ClCompile Include="Graphics\Text.cpp" />
     <ClCompile Include="Graphics\Textbox.cpp" />
     <ClCompile Include="Graphics\Window.cpp" />
     <ClCompile Include="Graphics\windowComponentPTRContainer.cpp" />
+    <ClCompile Include="Screens\Credits.cpp" />
+    <ClCompile Include="Screens\Lobby.cpp" />
+    <ClCompile Include="Screens\Starting.cpp" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Client\client.h" />
     <ClInclude Include="Client\ClientData.h" />
+    <ClInclude Include="CustomButtons\CreditsButton.h" />
+    <ClInclude Include="CustomButtons\ReadyButton.h" />
     <ClInclude Include="fileLocations.h" />
     <ClInclude Include="Graphics\Button.h" />
     <ClInclude Include="Graphics\GameObject.h" />
@@ -164,6 +171,9 @@
     <ClInclude Include="Graphics\Textbox.h" />
     <ClInclude Include="Graphics\Window.h" />
     <ClInclude Include="Graphics\windowComponentPTRContainer.h" />
+    <ClInclude Include="Screens\Credits.h" />
+    <ClInclude Include="Screens\Lobby.h" />
+    <ClInclude Include="Screens\Starting.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
