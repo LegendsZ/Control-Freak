@@ -68,6 +68,14 @@ bool Window::isClosed() const
 	return m_isClosed;
 }
 
+bool Window::setWindowIconFilePath(const std::string& filePath)
+{
+	SDL_Surface* surface = IMG_Load(filePath.c_str());
+	SDL_SetWindowIcon(m_Window, surface);
+	SDL_FreeSurface(surface);
+	return true;
+}
+
 bool Window::close()
 {
 	m_isClosed = true;

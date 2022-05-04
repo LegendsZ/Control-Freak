@@ -1,5 +1,7 @@
 #include "Credits.h"
 
+bool Credits::status = false;
+
 Credits::Credits(SDL_Window* window, SDL_Renderer* renderer, int w, int h) : _window(window), _w(w), _h(h)
 {
 	creator1 = new Text(renderer, comicFont_path, 45, "Akkshai B.", { 0, 50, 0 });

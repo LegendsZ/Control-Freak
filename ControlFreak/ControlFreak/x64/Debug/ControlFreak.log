@@ -1,8 +1,2 @@
-﻿  CreditsButton.cpp
-  ReadyButton.cpp
-  Credits.cpp
-  Starting.cpp
-  Source.cpp
-C:\Users\WINDOWS\Documents\GitHub\Control-Freak\ControlFreak\ControlFreak\Client\client.h(63,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-  Generating Code...
+﻿  Starting.cpp
   ControlFreak.vcxproj -> C:\Users\WINDOWS\Documents\GitHub\Control-Freak\ControlFreak\x64\Debug\ControlFreak.exe

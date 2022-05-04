@@ -15,7 +15,7 @@ public:
 	~Credits();
 	int _w;
 	int _h;
-	bool status = false;
+	static bool status;
 	Text* creator1;
 	Text* creator2;
 

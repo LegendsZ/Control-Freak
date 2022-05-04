@@ -1,5 +1,6 @@
 #include "Lobby.h"
 
+bool Lobby::status = false;
 Lobby::Lobby(SDL_Window* window, SDL_Renderer* renderer, int w, int h)
 {
 	readyTitle = new Text(renderer, comicFont_path, 40, "THIS IS THE LOBBY", {0,5,0});

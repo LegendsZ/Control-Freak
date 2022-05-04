@@ -47,7 +47,9 @@ void CreditsButton::pollEvents(SDL_Event& event)
 void CreditsButton::draw()
 {
 	m_Rect->draw();
-	//m_Text->draw();
+	if (m_Text != nullptr) {
+		m_Text->draw();
+	}
 }
 
 /*	auto play = [](SDL_Event& event) {

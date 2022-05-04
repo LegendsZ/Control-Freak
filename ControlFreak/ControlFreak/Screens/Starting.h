@@ -6,21 +6,24 @@
 #include "..\fileLocations.h"
 #include "..\\CustomButtons\ReadyButton.h"
 #include "Lobby.h"
+#include "Credits.h"
 #include "..\\CustomButtons\CreditsButton.h"
+
+#include "..\\CustomButtons\ButtonV2.h"
+//#include "..\\CustomButtons\Handlers.h"
 class Starting
 {
 public:
 	Starting(SDL_Window* window, SDL_Renderer* renderer, int w, int h);
 	~Starting();
 
-	ReadyButton* playButton;
-	CreditsButton* credits;
-	//Text* gameTitle;
+	ButtonV2* btnCredits;
+	ButtonV2* btnJoin;
+	ButtonV2* btnHost;
 	Rect* background;
 	int _w;
 	int _h;
-	bool status = true;
-
+	static bool status;
 
 public:
 	void draw();

@@ -12,7 +12,6 @@
 #include "fileLocations.h"
 #include "SDL.h"
 #include "Screens/Starting.h"
-#include "Screens/Credits.h"
 #undef main
 
 const std::string version = "1.0.0.0"; //version control
@@ -26,7 +25,9 @@ int main() {
 	bool gameActive = false;
 	bool STARTACTIVE = true;
 	SDL_Event event;
-	Window window("Control Freak | Menu", 1000, 1000);
+	Window window("Control Freak | Menu", 700, 600);
+	window.setWindowIconFilePath(icon_path);
+	
 	SDL_ShowWindow(window.m_Window);
 	Starting mainpage(window.m_Window, window.renderer, window.m_Width, window.m_Height);
 	Lobby lobby(window.m_Window, window.renderer, window.m_Width, window.m_Height);

@@ -37,8 +37,6 @@ void ReadyButton::pollEvents(SDL_Event& event)
 		{
 		case SDL_MOUSEBUTTONUP:
 			_status = true;
-			std::cout << "FALSE NOW BABY";
-
 		}
 	}
 }
@@ -46,7 +44,9 @@ void ReadyButton::pollEvents(SDL_Event& event)
 void ReadyButton::draw()
 {
 	m_Rect->draw();
-	//m_Text->draw();
+	if (m_Text != nullptr) {
+		m_Text->draw();
+	}
 }
 
 /*	auto play = [](SDL_Event& event) {

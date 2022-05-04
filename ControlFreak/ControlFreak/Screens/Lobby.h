@@ -14,7 +14,7 @@ public:
 	void draw() override;
 
 public:
-	bool status = false;
+	static bool status;
 
 private:
 	Text* readyTitle = nullptr;

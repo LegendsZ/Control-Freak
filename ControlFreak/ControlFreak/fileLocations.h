@@ -11,6 +11,9 @@ const std::string bkgdGameMenu_path = "res/bkgdGame.png";
 const std::string bkgdbtnPlay_path = "res/bkgdbtnPlay.png";
 const std::string bkgdbtnReset_path = "res/bkgdbtnReset.png";
 const std::string bkgdbtnCredit_path = "res/bkgdbtnCredit.png";
+const std::string bkgdbtnHost_path = "res/bkgdbtnHost.png";
+
+const std::string icon_path = "res/icon.png";
 //fonts
 const std::string comicFont_path = "res/comic.ttf";
 

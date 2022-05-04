@@ -19,6 +19,8 @@ public:
 	void clear() const;
 
 	bool isClosed() const;
+	bool setWindowIconFilePath(const std::string& filePath);
+
 
 	static SDL_Renderer* renderer;
 
