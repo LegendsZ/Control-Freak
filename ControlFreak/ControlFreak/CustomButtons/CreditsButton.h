@@ -3,6 +3,7 @@
 #include "..\Graphics\Button.h"
 #include "..\Graphics\Window.h"
 #include "..\Screens\Lobby.h"
+#include "../Screens/Credits.h"
 
 class CreditsButton : GameObject
 {

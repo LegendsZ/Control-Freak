@@ -37,8 +37,11 @@ void CreditsButton::pollEvents(SDL_Event& event)
 		switch (event.type)
 		{
 		case SDL_MOUSEBUTTONUP:
+		{
 			_status = true;
-			std::cout << "FALSE NOW BABY";
+			Credits::status = true;
+			break;
+		}
 
 		}
 	}

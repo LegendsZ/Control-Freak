@@ -7,6 +7,7 @@
 #include "..\fileLocations.h"
 #include "..\\CustomButtons\ReadyButton.h"
 #include "Lobby.h"
+#include "Starting.h"
 
 class Credits
 {
@@ -18,6 +19,7 @@ public:
 	static bool status;
 	Text* creator1;
 	Text* creator2;
+	Text* creator3;
 
 	void draw();
 	void createButtons();

@@ -57,7 +57,7 @@ void Starting::pollEvents(SDL_Event event)
 	btnCredits->pollEvents(event);
 	btnJoin->pollEvents(event);
 	btnHost->pollEvents(event);
-	//status = !btnPlay->_status && !btnCredits->_status;
+	status = !Lobby::status && !Credits::status;
 }
 
 

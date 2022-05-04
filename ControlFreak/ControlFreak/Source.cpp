@@ -48,6 +48,7 @@ int main() {
 			}else if (mainpage.getCreditsStatus())
 			{
 				credit.draw();
+				credit.pollEvents(event);
 
 			}
 			window.clear();
