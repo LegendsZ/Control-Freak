@@ -37,11 +37,7 @@ int main() {
 	{
 		while (SDL_PollEvent(&event))
 		{
-			if (mainpage.status)
-			{
-				mainpage.draw();
-				mainpage.pollEvents(event);
-			}else if (mainpage.getLobbyStatus())
+			if (mainpage.getLobbyStatus())
 			{
 				lobby.draw();
 				lobby.pollEvents(event);
@@ -49,8 +45,13 @@ int main() {
 			{
 				credit.draw();
 				credit.pollEvents(event);
-
 			}
+			else
+			{
+				mainpage.draw();
+				mainpage.pollEvents(event);
+			}
+			
 			window.clear();
 		}
 	}

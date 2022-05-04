@@ -5,9 +5,13 @@ bool Starting::status = true;
 
 void btnJoin_Handler() {
 	std::cout << "Join clicked\n";
+	Lobby::status = !Lobby::status;
+	Lobby::type = NONHOST;
 }
 void btnHost_Handler() {
 	std::cout << "Host clicked\n";
+	Lobby::status = !Lobby::status;
+	Lobby::type = HOST;
 }
 void btnCredits_Handler() {
 	std::cout << "Credits clicked\n";

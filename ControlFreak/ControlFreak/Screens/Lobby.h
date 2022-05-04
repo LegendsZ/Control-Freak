@@ -4,6 +4,9 @@
 #include "..\\Graphics\Text.h"
 #include "..\\Graphics\Button.h"
 #include "../fileLocations.h"
+
+#define HOST 1
+#define NONHOST 2
 class Lobby : GameObject
 {
 public:
@@ -15,9 +18,10 @@ public:
 
 public:
 	static bool status;
-
+	static int type;
 private:
 	Text* readyTitle = nullptr;
+	Text* sampleHostText = nullptr;
 	Text* map = nullptr;
 	Text* player1 = nullptr;
 	Text* player2 = nullptr;

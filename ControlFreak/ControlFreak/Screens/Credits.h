@@ -5,7 +5,6 @@
 #include "..\\Graphics\Rect.h"
 #include "..\\Graphics\Text.h"
 #include "..\fileLocations.h"
-#include "..\\CustomButtons\ReadyButton.h"
 #include "Lobby.h"
 #include "Starting.h"
 
