@@ -154,6 +154,7 @@
     <ClCompile Include="Graphics\windowComponentPTRContainer.cpp" />
     <ClCompile Include="Screens\Credits.cpp" />
     <ClCompile Include="Screens\Lobby.cpp" />
+    <ClCompile Include="Screens\MiniMenu.cpp" />
     <ClCompile Include="Screens\Starting.cpp" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
@@ -171,6 +172,7 @@
     <ClInclude Include="Graphics\windowComponentPTRContainer.h" />
     <ClInclude Include="Screens\Credits.h" />
     <ClInclude Include="Screens\Lobby.h" />
+    <ClInclude Include="Screens\MiniMenu.h" />
     <ClInclude Include="Screens\Starting.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -62,6 +62,15 @@ void Starting::pollEvents(SDL_Event event)
 	btnJoin->pollEvents(event);
 	btnHost->pollEvents(event);
 	status = !Lobby::status && !Credits::status;
+	switch (event.key.keysym.sym)
+	{
+	
+	case SDLK_p:
+	{
+		MiniMenu::status = true;
+	}
+
+	}
 }
 
 
@@ -74,3 +83,4 @@ bool Starting::getCreditsStatus()
 {
 	return Credits::status;
 }
+

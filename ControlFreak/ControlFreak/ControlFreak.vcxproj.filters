@@ -48,6 +48,9 @@
     <ClCompile Include="Graphics\ButtonV2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Screens\MiniMenu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Client\client.h">
@@ -90,6 +93,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Graphics\ButtonV2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Screens\MiniMenu.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

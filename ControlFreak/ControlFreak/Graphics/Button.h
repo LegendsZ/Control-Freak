@@ -2,7 +2,6 @@
 
 #include "Rect.h"
 #include "Text.h"
-#include "..\\Screens\Lobby.h"
 #include "Window.h"
 class Button : GameObject {
 public:

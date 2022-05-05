@@ -4,6 +4,7 @@
 #include "..\\Graphics\Text.h"
 #include "..\\Graphics\Button.h"
 #include "../fileLocations.h"
+#include "MiniMenu.h"
 
 #define HOST 1
 #define NONHOST 2
@@ -17,8 +18,10 @@ public:
 	void draw() override;
 
 public:
+	Rect* background;
 	static bool status;
 	static int type;
+	ButtonV2* btnSettings = nullptr;
 private:
 
 

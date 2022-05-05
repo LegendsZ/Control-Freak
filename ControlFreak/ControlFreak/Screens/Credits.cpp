@@ -28,8 +28,12 @@ void Credits::pollEvents(SDL_Event event)
 	{
 		Starting::status = true;
 		status = false;
+		break;
 	}
-
+	case SDLK_p:
+		std::cout << "SETTINGS SHOULD GO OUT MAN";
+		MiniMenu::status = true;
+		break;
 	}
 }
 

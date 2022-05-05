@@ -12,6 +12,7 @@
 #include "fileLocations.h"
 #include "SDL.h"
 #include "Screens/Starting.h"
+#include "Screens/MiniMenu.h"
 #undef main
 
 const std::string version = "1.0.0.0"; //version control
@@ -40,6 +41,7 @@ int main() {
 	Starting mainpage(window.m_Window, window.renderer, window.m_Width, window.m_Height);
 	Lobby lobby(window.m_Window, window.renderer, window.m_Width, window.m_Height);
 	Credits credit(window.m_Window, window.renderer, window.m_Width, window.m_Height);
+	MiniMenu menu(window.m_Window, window.renderer, window.m_Width, window.m_Height);
 
 	
 	while (!window.isClosed())
@@ -68,11 +70,20 @@ int main() {
 		if (mainpage.getLobbyStatus())
 		{
 			lobby.pollEvents(event);
+			if (menu.getStatus())
+			{
+				menu.pollEvents(event);
+			}
 		}
 		else if (mainpage.getCreditsStatus())
 		{
 			credit.pollEvents(event);
+			if (menu.getStatus())
+			{
+				menu.pollEvents(event);
+			}
 		}
+		
 		else
 		{
 			mainpage.pollEvents(event);
@@ -87,11 +98,21 @@ int main() {
 			if (mainpage.getLobbyStatus())
 			{
 				lobby.draw();
+				if (menu.getStatus())
+				{
+					menu.draw();
+				}
 			}
 			else if (mainpage.getCreditsStatus())
 			{
 				credit.draw();
+				if (menu.getStatus())
+				{
+					menu.draw();
+				}
 			}
+			
+
 			else
 			{
 				mainpage.draw();

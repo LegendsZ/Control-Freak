@@ -2,7 +2,6 @@
 
 #include "..\Graphics\Button.h"
 #include "..\Graphics\Window.h"
-#include "..\Screens\Lobby.h"
 class ButtonV2 : GameObject
 {
 public:
