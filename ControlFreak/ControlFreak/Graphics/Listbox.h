@@ -14,6 +14,8 @@ public:
 	void addItem(std::vector<std::string> columns);
 	void removeItem(int index);
 
+	Rect* backgroundRect = nullptr;
+
 	std::string _fontPath;
 	SDL_Renderer* _renderer = nullptr;
 	void draw() override;

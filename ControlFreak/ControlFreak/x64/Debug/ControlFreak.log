@@ -1,10 +1,6 @@
 ﻿  Listbox.cpp
   ListboxItem.cpp
-C:\Users\16479\Documents\GitHub\Control-Freak\ControlFreak\ControlFreak\Graphics\ListboxItem.cpp(11,33): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-  Credits.cpp
-  Lobby.cpp
-  Starting.cpp
-  Source.cpp
-C:\Users\16479\Documents\GitHub\Control-Freak\ControlFreak\ControlFreak\Client\client.h(63,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\WINDOWS\Documents\GitHub\Control-Freak\ControlFreak\ControlFreak\Graphics\ListboxItem.cpp(16,35): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\WINDOWS\Documents\GitHub\Control-Freak\ControlFreak\ControlFreak\Graphics\ListboxItem.cpp(23,13): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
   Generating Code...
-  ControlFreak.vcxproj -> C:\Users\16479\Documents\GitHub\Control-Freak\ControlFreak\x64\Debug\ControlFreak.exe
+  ControlFreak.vcxproj -> C:\Users\WINDOWS\Documents\GitHub\Control-Freak\ControlFreak\x64\Debug\ControlFreak.exe
