@@ -5,6 +5,7 @@
 #include "..\\Graphics\Button.h"
 #include "../fileLocations.h"
 #include "MiniMenu.h"
+#include "../Graphics/Listbox.h"
 
 #define HOST 1
 #define NONHOST 2
@@ -24,6 +25,13 @@ public:
 	ButtonV2* btnSettings = nullptr;
 private:
 
+	ButtonV2* btnUp = nullptr;
+	ButtonV2* btnDown = nullptr;
+
+
+	Listbox* listbox = nullptr;
+	//make new component for listbox. the two buttons should be redirected to the listbox's up/down function.
+	//^ make listboxitem component for listbox^
 
 
 

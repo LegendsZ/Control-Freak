@@ -16,6 +16,8 @@ Lobby::Lobby(SDL_Window* window, SDL_Renderer* renderer, int w, int h)
 	readyTitle->setPos((w - 400) / 2, h / 20);
 	sampleHostText->setPos((w - 400) / 2, h / 10 );
 	btnSettings = new ButtonV2(window, 50, 50, 25, h - 50, "./res/gear.png", btnSettings_Handler);
+
+	listbox = new Listbox(renderer, comicFont_path, 400, 400, 250, 100, "LISTBOX");
 }
 
 Lobby::~Lobby()
@@ -34,6 +36,7 @@ void Lobby::draw()
 	background->draw();
 	readyTitle->draw();
 	btnSettings->draw();
+	listbox->draw();
 	if (type == HOST)
 	{
 		sampleHostText->draw();

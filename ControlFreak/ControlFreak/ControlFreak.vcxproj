@@ -147,6 +147,8 @@
   <ItemGroup>
     <ClCompile Include="Graphics\ButtonV2.cpp" />
     <ClCompile Include="Graphics\Button.cpp" />
+    <ClCompile Include="Graphics\Listbox.cpp" />
+    <ClCompile Include="Graphics\ListboxItem.cpp" />
     <ClCompile Include="Graphics\Rect.cpp" />
     <ClCompile Include="Graphics\Text.cpp" />
     <ClCompile Include="Graphics\Textbox.cpp" />
@@ -165,6 +167,8 @@
     <ClInclude Include="fileLocations.h" />
     <ClInclude Include="Graphics\Button.h" />
     <ClInclude Include="Graphics\GameObject.h" />
+    <ClInclude Include="Graphics\Listbox.h" />
+    <ClInclude Include="Graphics\ListboxItem.h" />
     <ClInclude Include="Graphics\Rect.h" />
     <ClInclude Include="Graphics\Text.h" />
     <ClInclude Include="Graphics\Textbox.h" />

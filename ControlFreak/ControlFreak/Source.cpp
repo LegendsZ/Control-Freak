@@ -123,7 +123,9 @@ int main() {
 		}
 
 		if ((SDL_GetTicks() - lastFrame) / 1000.0 >= 1) {
-			//FPS = 0;
+			system("cls");
+			std::cout << "FPS: " << FPS << "\n";
+			FPS = 0;
 			lastFrame = SDL_GetTicks();
 		}
 
