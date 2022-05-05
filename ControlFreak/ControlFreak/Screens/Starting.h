@@ -6,9 +6,8 @@
 #include "..\fileLocations.h"
 #include "Lobby.h"
 #include "Credits.h"
+#include "..\\Graphics\ButtonV2.h"
 
-#include "..\\CustomButtons\ButtonV2.h"
-//#include "..\\CustomButtons\Handlers.h"
 class Starting
 {
 public:

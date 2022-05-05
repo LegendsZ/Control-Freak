@@ -13,8 +13,11 @@ Lobby::Lobby(SDL_Window* window, SDL_Renderer* renderer, int w, int h)
 
 Lobby::~Lobby()
 {
-
 	readyTitle->~Text();
+	if (type == HOST)
+	{
+		sampleHostText->~Text();
+	}
 }
 
 void Lobby::draw()

@@ -45,7 +45,7 @@
     <ClCompile Include="Screens\Starting.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CustomButtons\ButtonV2.cpp">
+    <ClCompile Include="Graphics\ButtonV2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -89,7 +89,7 @@
     <ClInclude Include="Screens\Starting.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="CustomButtons\ButtonV2.h">
+    <ClInclude Include="Graphics\ButtonV2.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -22,9 +22,17 @@ int main() {
 
 
 	const unsigned int FRAMESCAP = 60; //set to ur screen refresh rate
+	const unsigned int COMPCAP = 600; //set to 60 for now
+	int FPS = 0;
+
+	Uint32 lastFrame = SDL_GetTicks();
+	UINT32 elapsedDraw = SDL_GetTicks();
+	UINT32 elapsedComp = SDL_GetTicks();
+
 	bool gameActive = false;
 	bool STARTACTIVE = true;
 	SDL_Event event;
+
 	Window window("Control Freak | Menu", 700, 600);
 	window.setWindowIconFilePath(icon_path);
 	
@@ -33,9 +41,11 @@ int main() {
 	Lobby lobby(window.m_Window, window.renderer, window.m_Width, window.m_Height);
 	Credits credit(window.m_Window, window.renderer, window.m_Width, window.m_Height);
 
-	while (true)
+	
+	while (!window.isClosed())
 	{
-		while (SDL_PollEvent(&event))
+		//Original here you can delete this once u feel comfortable with what we have here.
+		/*while (SDL_PollEvent(&event))
 		{
 			if (mainpage.getLobbyStatus())
 			{
@@ -53,14 +63,52 @@ int main() {
 			}
 			
 			window.clear();
+		}*/
+		SDL_PollEvent(&event);
+		if (mainpage.getLobbyStatus())
+		{
+			lobby.pollEvents(event);
 		}
+		else if (mainpage.getCreditsStatus())
+		{
+			credit.pollEvents(event);
+		}
+		else
+		{
+			mainpage.pollEvents(event);
+		}
+
+		if (1000 / COMPCAP <= SDL_GetTicks() - elapsedComp) { //to cap computation
+			//LOGIC CALLS HERE
+			elapsedComp = SDL_GetTicks();
+		}
+		if (1000 / FRAMESCAP <= SDL_GetTicks() - elapsedDraw) { //to cap frames
+			//DRAW CALLS HERE
+			if (mainpage.getLobbyStatus())
+			{
+				lobby.draw();
+			}
+			else if (mainpage.getCreditsStatus())
+			{
+				credit.draw();
+			}
+			else
+			{
+				mainpage.draw();
+			}
+			window.clear();
+			FPS++;
+			elapsedDraw = SDL_GetTicks();
+		}
+
+		if ((SDL_GetTicks() - lastFrame) / 1000.0 >= 1) {
+			//FPS = 0;
+			lastFrame = SDL_GetTicks();
+		}
+
 	}
 
 
-
-
-
-
-
 	system("pause");
+	return 0;
 }

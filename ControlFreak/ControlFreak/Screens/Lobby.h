@@ -20,14 +20,21 @@ public:
 	static bool status;
 	static int type;
 private:
+
+
+
+
 	Text* readyTitle = nullptr;
 	Text* sampleHostText = nullptr;
+
 	Text* map = nullptr;
+
 	Text* player1 = nullptr;
 	Text* player2 = nullptr;
 	Text* player3 = nullptr;
 	Text* player4 = nullptr;
 	Rect* randombox = nullptr;
+
 	/*	Button* kickp1 = nullptr;
 		Button* kickp2 = nullptr;
 		Button* kickp3 = nullptr;

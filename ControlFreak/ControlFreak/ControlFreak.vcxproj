@@ -145,7 +145,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="CustomButtons\ButtonV2.cpp" />
+    <ClCompile Include="Graphics\ButtonV2.cpp" />
     <ClCompile Include="Graphics\Button.cpp" />
     <ClCompile Include="Graphics\Rect.cpp" />
     <ClCompile Include="Graphics\Text.cpp" />
@@ -160,7 +160,7 @@
   <ItemGroup>
     <ClInclude Include="Client\client.h" />
     <ClInclude Include="Client\ClientData.h" />
-    <ClInclude Include="CustomButtons\ButtonV2.h" />
+    <ClInclude Include="Graphics\ButtonV2.h" />
     <ClInclude Include="fileLocations.h" />
     <ClInclude Include="Graphics\Button.h" />
     <ClInclude Include="Graphics\GameObject.h" />
