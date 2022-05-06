@@ -5,13 +5,13 @@
 class Text : GameObject{
 public:
 
-	Text(SDL_Renderer* renderer,const std::string &font_path, int font_size, const std::string &message, const SDL_Color &color);
+	Text(SDL_Renderer* renderer, const std::string& font_path, int font_size, const std::string& message, const SDL_Color& fontColor, const SDL_Color& bkgdColor);
 	~Text();
 
 	void draw() override;
 	void pollEvents(SDL_Event& event) override;
 
-	SDL_Texture* loadFont(SDL_Renderer *renderer, const std::string& font_path, int font_size, const std::string& message, const SDL_Color& color);
+	SDL_Texture* loadFont(SDL_Renderer* renderer, const std::string& font_path, int font_size, const std::string& message, const SDL_Color& fontColor, const SDL_Color& bkgdColor);
 
 	int* getPos();
 	bool setPos(int x, int y);
@@ -26,6 +26,8 @@ public:
 	const std::string& m_FontPath;
 	int m_FontSize = 25;
 	const SDL_Color& m_Color;
+	const SDL_Color& m_BKGDColor;
+
 private:
 
 	SDL_Texture* m_Texture = nullptr;

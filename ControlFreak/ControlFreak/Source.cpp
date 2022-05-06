@@ -83,7 +83,6 @@ int main() {
 				menu.pollEvents(event);
 			}
 		}
-		
 		else
 		{
 			mainpage.pollEvents(event);
@@ -111,8 +110,6 @@ int main() {
 					menu.draw();
 				}
 			}
-			
-
 			else
 			{
 				mainpage.draw();
@@ -128,9 +125,8 @@ int main() {
 			FPS = 0;
 			lastFrame = SDL_GetTicks();
 		}
-
 	}
-
+	window.~Window();
 
 	system("pause");
 	return 0;

@@ -3,7 +3,7 @@ Button::Button(int w, int h, int x, int y, int r, int g, int b, int a, SDL_Rende
 	m_Handler(handler)
 {
 	m_Rect = new Rect(w, h, x, y, r, g, b, a);
-	m_Text = new Text(renderer, font_path, font_size, message, color);
+	m_Text = new Text(renderer, font_path, font_size, message, color, {0xff,0xff,0xff});
 	m_Text->setRenderer(renderer);
 	m_Text->setPos(x + w / 2 - m_Text->m_TextRect.w / 2, y + h / 2 - m_Text->m_TextRect.h / 2);
 }
@@ -12,7 +12,7 @@ Button::Button(int w, int h, int x, int y, const std::string& img_path, SDL_Rend
 	m_Handler(handler)
 {
 	m_Rect = new Rect(w, h, x, y, img_path);
-	m_Text = new Text(renderer, font_path, font_size, message, color);
+	m_Text = new Text(renderer, font_path, font_size, message, color, { 0xff,0xff,0xff });
 	m_Text->setRenderer(renderer);
 	m_Text->setPos(x + w / 2 - m_Text->m_TextRect.w / 2, y + h / 2 - m_Text->m_TextRect.h / 2);
 }
