@@ -1,17 +1,17 @@
 #include "ListboxItem.h"
 
-ListboxItem::ListboxItem(SDL_Renderer* renderer, std::string fontPath, int w, int h,int x, int y,std::string column): _w(w),_h(h),_x(x), _y(y)
+ListboxItem::ListboxItem(SDL_Renderer* renderer, std::string fontPath, int w, int h,int x, int y,std::string column, int r, int g, int b, int a): _w(w),_h(h),_x(x), _y(y)
 {
-	Text* item = new Text(renderer, fontPath, 25, column, { 255,255,255,255 }, {0xff,0xff,0xff});
+	Text* item = new Text(renderer, fontPath, 25, column, { 255,255,255,255 }, {(Uint8)r,(Uint8)g,(Uint8)b,(Uint8)a});
 	item->setPos(x, y);
 	columns.push_back(item);
 }
 
-ListboxItem::ListboxItem(SDL_Renderer* renderer, std::string fontPath, int w, int h, int x,int y, std::vector<std::string> columns):_w(w),_h(h),_x(x),_y(y)
+ListboxItem::ListboxItem(SDL_Renderer* renderer, std::string fontPath, int w, int h, int x,int y, std::vector<std::string> columns, int r, int g, int b, int a):_w(w),_h(h),_x(x),_y(y)
 {
 	int xL = x;
 	for (int i = 0; i < columns.size(); i++) {
-		Text* item = new Text(renderer, fontPath, 20, columns[i], { 255,0,0,255 }, { 0xff,0xff,0xff });
+		Text* item = new Text(renderer, fontPath, 20, columns[i], { 255,0,0,255 }, { (Uint8)r,(Uint8)g,(Uint8)b,(Uint8)a });
 
 
 		/*SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);

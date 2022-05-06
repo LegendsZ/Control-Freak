@@ -1,23 +1,2 @@
-﻿  Listbox.cpp
-C:\Users\WINDOWS\Documents\GitHub\Control-Freak\ControlFreak\ControlFreak\Graphics\Listbox.cpp(5,86): error C2397: conversion from 'int' to 'Uint8' requires a narrowing conversion
-C:\Users\WINDOWS\Documents\GitHub\Control-Freak\ControlFreak\ControlFreak\Graphics\Listbox.cpp(5,107): error C2397: conversion from 'int' to 'Uint8' requires a narrowing conversion
-C:\Users\WINDOWS\Documents\GitHub\Control-Freak\ControlFreak\ControlFreak\Graphics\Listbox.cpp(5,128): error C2397: conversion from 'int' to 'Uint8' requires a narrowing conversion
-C:\Users\WINDOWS\Documents\GitHub\Control-Freak\ControlFreak\ControlFreak\Graphics\Listbox.cpp(5,149): error C2397: conversion from 'int' to 'Uint8' requires a narrowing conversion
-  ListboxItem.cpp
-  Textbox.cpp
-C:\Users\WINDOWS\Documents\GitHub\Control-Freak\ControlFreak\ControlFreak\Graphics\Textbox.cpp(7,69): error C2661: 'Text::Text': no overloaded function takes 5 arguments
-  windowComponentPTRContainer.cpp
-  Credits.cpp
-C:\Users\WINDOWS\Documents\GitHub\Control-Freak\ControlFreak\ControlFreak\Screens\Credits.cpp(7,81): error C2661: 'Text::Text': no overloaded function takes 5 arguments
-C:\Users\WINDOWS\Documents\GitHub\Control-Freak\ControlFreak\ControlFreak\Screens\Credits.cpp(8,80): error C2661: 'Text::Text': no overloaded function takes 5 arguments
-C:\Users\WINDOWS\Documents\GitHub\Control-Freak\ControlFreak\ControlFreak\Screens\Credits.cpp(9,78): error C2661: 'Text::Text': no overloaded function takes 5 arguments
-  Lobby.cpp
-C:\Users\WINDOWS\Documents\GitHub\Control-Freak\ControlFreak\ControlFreak\Screens\Lobby.cpp(14,83): error C2661: 'Text::Text': no overloaded function takes 5 arguments
-C:\Users\WINDOWS\Documents\GitHub\Control-Freak\ControlFreak\ControlFreak\Screens\Lobby.cpp(15,94): error C2661: 'Text::Text': no overloaded function takes 5 arguments
-  MiniMenu.cpp
-C:\Users\WINDOWS\Documents\GitHub\Control-Freak\ControlFreak\ControlFreak\Screens\MiniMenu.cpp(7,77): error C2661: 'Text::Text': no overloaded function takes 5 arguments
-C:\Users\WINDOWS\Documents\GitHub\Control-Freak\ControlFreak\ControlFreak\Screens\MiniMenu.cpp(9,86): error C2661: 'Text::Text': no overloaded function takes 5 arguments
-  Starting.cpp
-  Source.cpp
-C:\Users\WINDOWS\Documents\GitHub\Control-Freak\ControlFreak\ControlFreak\Client\client.h(63,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-  Generating Code...
+﻿  ListboxItem.cpp
+  ControlFreak.vcxproj -> C:\Users\WINDOWS\Documents\GitHub\Control-Freak\ControlFreak\x64\Debug\ControlFreak.exe

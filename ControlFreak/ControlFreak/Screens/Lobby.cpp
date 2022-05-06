@@ -11,8 +11,8 @@ int Lobby::type = 0;
 Lobby::Lobby(SDL_Window* window, SDL_Renderer* renderer, int w, int h)
 {
 	background = new Rect(w, h, 0, 0, bkgdMenu_path);
-	readyTitle = new Text(renderer, comicFont_path, 40, "THIS IS THE LOBBY", {0,5,0});
-	sampleHostText = new Text(renderer, comicFont_path, 40, "ONLY HOST CAN SEE THIS", { 0,5,0 });
+	readyTitle = new Text(renderer, comicFont_path, 40, "THIS IS THE LOBBY", {0,5,0}, { 0xff,0xff,0xff });
+	sampleHostText = new Text(renderer, comicFont_path, 40, "ONLY HOST CAN SEE THIS", { 0,5,0 }, { 0xff,0xff,0xff });
 	readyTitle->setPos((w - 400) / 2, h / 20);
 	sampleHostText->setPos((w - 400) / 2, h / 10 );
 	btnSettings = new ButtonV2(window, 50, 50, 25, h - 50, "./res/gear.png", btnSettings_Handler);
