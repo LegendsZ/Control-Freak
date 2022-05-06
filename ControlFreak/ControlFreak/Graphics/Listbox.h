@@ -21,4 +21,11 @@ public:
 	void draw() override;
 	void pollEvents(SDL_Event& event) override;
 	std::vector<ListboxItem*> items;
+
+	Text* name = nullptr;
+	std::vector<ListboxItem*> visibleItems;
+	int visibleItemIndex = 0;
+	int visibleItemCount = 0;
+	void scrollUp(int count);
+	void scrollDown(int count);
 };
