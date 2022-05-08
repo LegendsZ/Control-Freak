@@ -1,8 +1,8 @@
 #include "Listbox.h"
 
-Listbox::Listbox(SDL_Renderer* renderer, std::string fontPath, int w, int h, int x, int y, std::string name) : _w(w), _h(h), _x(x), _y(y), _renderer(renderer), _fontPath(fontPath)
+Listbox::Listbox(SDL_Renderer* renderer, std::string fontPath, int w, int h, int x, int y, std::string name, int r, int g, int b,int a) : _w(w), _h(h), _x(x), _y(y), _renderer(renderer), _fontPath(fontPath)
 {
-	backgroundRect = new Rect(w, h, x, y, 50, 50, 50, 0);
+	backgroundRect = new Rect(w, h, x, y, r, g, b, a);
 	this->name = new Text(renderer, fontPath, 25, name, { 255,0,0,255 }, {(Uint8)backgroundRect->m_R, (Uint8)backgroundRect->m_G, (Uint8)backgroundRect->m_B, (Uint8)backgroundRect->m_A});
 	this->name->setPos(x + (w / 2) - (this->name->m_TextRect.w / 2), y);
 	//SDL_Surface* surface = SDL_CreateRGBSurface(0, this->name->m_TextRect.w, this->name->m_TextRect.h, 32,0, 0, 0, 0);

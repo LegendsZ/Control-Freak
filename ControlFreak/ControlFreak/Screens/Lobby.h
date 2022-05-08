@@ -1,11 +1,13 @@
 #pragma once
 
-#include "..\\Graphics\Window.h"
-#include "..\\Graphics\Text.h"
-#include "..\\Graphics\Button.h"
-#include "../fileLocations.h"
-#include "MiniMenu.h"
+//graphics stuff
 #include "../Graphics/Listbox.h"
+#include "MiniMenu.h"
+
+//networking stuff
+#include "../Client/client.h"
+#include "../Client/ClientData.h"
+#include "../Server/server.h"
 
 #define HOST 1
 #define NONHOST 2
@@ -27,17 +29,9 @@ private:
 
 	ButtonV2* btnUp = nullptr;
 	ButtonV2* btnDown = nullptr;
-
-
 	Listbox* listbox = nullptr;
-	//make new component for listbox. the two buttons should be redirected to the listbox's up/down function.
-	//^ make listboxitem component for listbox^
-
-
-
 	Text* readyTitle = nullptr;
 	Text* sampleHostText = nullptr;
-
 	Text* map = nullptr;
 
 	Text* player1 = nullptr;
@@ -45,6 +39,12 @@ private:
 	Text* player3 = nullptr;
 	Text* player4 = nullptr;
 	Rect* randombox = nullptr;
+
+
+	server* serverOBJ = nullptr;
+
+
+
 
 	/*	Button* kickp1 = nullptr;
 		Button* kickp2 = nullptr;

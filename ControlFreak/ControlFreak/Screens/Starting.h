@@ -1,12 +1,9 @@
 #pragma once
-#include "..\\Graphics\Window.h"
-#include "..\\Graphics\Button.h"
-#include "..\\Graphics\Rect.h"
-#include "..\\Graphics\Text.h"
 #include "..\fileLocations.h"
 #include "Lobby.h"
 #include "Credits.h"
 #include "..\\Graphics\ButtonV2.h"
+#include "..//Graphics/Textbox.h";
 
 class Starting
 {
@@ -15,8 +12,14 @@ public:
 	~Starting();
 
 	ButtonV2* btnCredits;
+
 	ButtonV2* btnJoin;
+	static Textbox* txtJoin;
+	static bool txtJoinVisible;
 	ButtonV2* btnHost;
+	static Textbox* txtHost;
+	static bool txtHostVisible;
+
 	Rect* background;
 	int _w;
 	int _h;

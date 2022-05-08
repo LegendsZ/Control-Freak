@@ -1,2 +1,26 @@
-﻿  ListboxItem.cpp
-  ControlFreak.vcxproj -> C:\Users\WINDOWS\Documents\GitHub\Control-Freak\ControlFreak\x64\Debug\ControlFreak.exe
+﻿  Credits.cpp
+C:\Users\WINDOWS\Documents\GitHub\Control-Freak\ControlFreak\ControlFreak\Client\client.h(65,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\WINDOWS\Documents\GitHub\Control-Freak\ControlFreak\ControlFreak\Screens\Starting.h(6,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  Starting.cpp
+C:\Users\WINDOWS\Documents\GitHub\Control-Freak\ControlFreak\ControlFreak\Client\client.h(65,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\WINDOWS\Documents\GitHub\Control-Freak\ControlFreak\ControlFreak\Screens\Starting.h(6,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  Source.cpp
+C:\Users\WINDOWS\Documents\GitHub\Control-Freak\ControlFreak\ControlFreak\Client\client.h(65,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\WINDOWS\Documents\GitHub\Control-Freak\ControlFreak\ControlFreak\Screens\Starting.h(6,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  Generating Code...
+Lobby.obj : error LNK2005: "bool __cdecl getMyIP(struct IPv4 &)" (?getMyIP@@YA_NAEAUIPv4@@@Z) already defined in Credits.obj
+Lobby.obj : error LNK2005: "public: static int Connector::port" (?port@Connector@@2HA) already defined in Credits.obj
+Lobby.obj : error LNK2005: "public: static class client * Connector::clientOBJ" (?clientOBJ@Connector@@2PEAVclient@@EA) already defined in Credits.obj
+Lobby.obj : error LNK2005: "public: static class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > Connector::connectIP" (?connectIP@Connector@@2V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@A) already defined in Credits.obj
+Lobby.obj : error LNK2005: "public: static class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > Connector::myIPV4" (?myIPV4@Connector@@2V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@A) already defined in Credits.obj
+Starting.obj : error LNK2005: "bool __cdecl getMyIP(struct IPv4 &)" (?getMyIP@@YA_NAEAUIPv4@@@Z) already defined in Credits.obj
+Starting.obj : error LNK2005: "public: static int Connector::port" (?port@Connector@@2HA) already defined in Credits.obj
+Starting.obj : error LNK2005: "public: static class client * Connector::clientOBJ" (?clientOBJ@Connector@@2PEAVclient@@EA) already defined in Credits.obj
+Starting.obj : error LNK2005: "public: static class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > Connector::connectIP" (?connectIP@Connector@@2V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@A) already defined in Credits.obj
+Starting.obj : error LNK2005: "public: static class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > Connector::myIPV4" (?myIPV4@Connector@@2V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@A) already defined in Credits.obj
+Source.obj : error LNK2005: "bool __cdecl getMyIP(struct IPv4 &)" (?getMyIP@@YA_NAEAUIPv4@@@Z) already defined in Credits.obj
+Source.obj : error LNK2005: "public: static int Connector::port" (?port@Connector@@2HA) already defined in Credits.obj
+Source.obj : error LNK2005: "public: static class client * Connector::clientOBJ" (?clientOBJ@Connector@@2PEAVclient@@EA) already defined in Credits.obj
+Source.obj : error LNK2005: "public: static class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > Connector::connectIP" (?connectIP@Connector@@2V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@A) already defined in Credits.obj
+Source.obj : error LNK2005: "public: static class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > Connector::myIPV4" (?myIPV4@Connector@@2V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@A) already defined in Credits.obj
+C:\Users\WINDOWS\Documents\GitHub\Control-Freak\ControlFreak\x64\Debug\ControlFreak.exe : fatal error LNK1169: one or more multiply defined symbols found

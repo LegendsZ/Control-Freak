@@ -145,6 +145,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Data\player.cpp" />
     <ClCompile Include="Graphics\ButtonV2.cpp" />
     <ClCompile Include="Graphics\Button.cpp" />
     <ClCompile Include="Graphics\Listbox.cpp" />
@@ -155,14 +156,17 @@
     <ClCompile Include="Graphics\Window.cpp" />
     <ClCompile Include="Graphics\windowComponentPTRContainer.cpp" />
     <ClCompile Include="Screens\Credits.cpp" />
+    <ClCompile Include="Screens\Game.cpp" />
     <ClCompile Include="Screens\Lobby.cpp" />
     <ClCompile Include="Screens\MiniMenu.cpp" />
     <ClCompile Include="Screens\Starting.cpp" />
+    <ClCompile Include="Server\server.cpp" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Client\client.h" />
     <ClInclude Include="Client\ClientData.h" />
+    <ClInclude Include="Data\player.h" />
     <ClInclude Include="Graphics\ButtonV2.h" />
     <ClInclude Include="fileLocations.h" />
     <ClInclude Include="Graphics\Button.h" />
@@ -175,9 +179,11 @@
     <ClInclude Include="Graphics\Window.h" />
     <ClInclude Include="Graphics\windowComponentPTRContainer.h" />
     <ClInclude Include="Screens\Credits.h" />
+    <ClInclude Include="Screens\Game.h" />
     <ClInclude Include="Screens\Lobby.h" />
     <ClInclude Include="Screens\MiniMenu.h" />
     <ClInclude Include="Screens\Starting.h" />
+    <ClInclude Include="Server\server.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

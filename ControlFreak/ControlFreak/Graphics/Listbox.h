@@ -9,7 +9,7 @@ private:
 	int _y;
 
 public:
-	Listbox(SDL_Renderer* renderer, std::string fontPath, int w, int h, int x, int y,std::string name);
+	Listbox(SDL_Renderer* renderer, std::string fontPath, int w, int h, int x, int y, std::string name,int r, int g, int b, int a);
 
 	void addItem(std::vector<std::string> columns);
 	void removeItem(int index);

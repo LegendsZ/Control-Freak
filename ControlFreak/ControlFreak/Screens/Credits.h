@@ -1,12 +1,10 @@
 #pragma once
 
 #include "..\\Graphics\Window.h"
-#include "..\\Graphics\Button.h"
 #include "..\\Graphics\Rect.h"
 #include "..\\Graphics\Text.h"
 #include "..\fileLocations.h"
-#include "Lobby.h"
-#include "Starting.h"
+#include "MiniMenu.h"
 
 class Credits
 {
@@ -21,7 +19,6 @@ public:
 	Text* creator3;
 
 	void draw();
-	void createButtons();
 	void pollEvents(SDL_Event event);
 	SDL_Window* _window = nullptr;
 

@@ -75,7 +75,7 @@ void txtIPPEnter() {
 		windowComponentPTRContainer::GameObjectList.erase(windowComponentPTRContainer::GameObjectList.begin() + index);*/
 	}
 	
-	windowComponentPTRContainer::txtIPPTR->m_Text->text = "";
+	//windowComponentPTRContainer::txtIPPTR->m_Text->text = "";
 }
 
 

@@ -1,28 +1,60 @@
 #include "Starting.h"
 
 bool Starting::status = true;
-
-
+bool Starting::txtJoinVisible=false;
+bool Starting::txtHostVisible=false;
+Textbox* Starting::txtJoin = nullptr;
+Textbox* Starting::txtHost = nullptr;
 void btnJoin_Handler() {
 	std::cout << "Join clicked\n";
-	Lobby::status = !Lobby::status;
-	Lobby::type = NONHOST;
+	Starting::txtJoinVisible = true;
+	/*Lobby::status = !Lobby::status;
+	Lobby::type = NONHOST;*/
 }
 void btnHost_Handler() {
 	std::cout << "Host clicked\n";
-	Lobby::status = !Lobby::status;
-	Lobby::type = HOST;
+	Starting::txtHostVisible = true;
+	/*Lobby::status = !Lobby::status;
+	Lobby::type = HOST;*/
 }
 void btnCredits_Handler() {
 	std::cout << "Credits clicked\n";
 	Credits::status = !Credits::status;
 }
 
+void txtHost_Handler() {
+	server::serverOBJ = new server(atoi(Starting::txtHost->m_Text->text.c_str()));
+	if (!server::serverOBJ->autoStart()) {
+		return; //error handle this
+	}
+}
+void txtJoin_Handler() {
+	if (Connector::connectIP == "") {
+		Connector::connectIP = Starting::txtHost->m_Text->text;
+		Starting::txtHost->m_Text->setText("PORT=");
+	}
+	else {
+		Connector::port = atoi(Starting::txtHost->m_Text->text.c_str());
+		Starting::txtHost->m_Text->setText("CONNECTING...");
+
+		Connector::clientOBJ = new client(Connector::connectIP, Connector::port);
+		if (!Connector::clientOBJ->autoStart()) {
+			return; //error handle?
+		}
+		IPv4 myIPV4TEMP;
+		getMyIP(myIPV4TEMP);
+		Connector::myIPV4 = std::to_string(myIPV4TEMP.b1) + "." + std::to_string(myIPV4TEMP.b2) + "." + std::to_string(myIPV4TEMP.b3) + "." + std::to_string(myIPV4TEMP.b4);
+		//Connector::clientOBJ->sendData(Connector::myIPV4 + "ISREADY");
+		Connector::clientOBJ->sendData(Connector::myIPV4 + "V" + version);
+	}
+}
 
 Starting::Starting(SDL_Window* window, SDL_Renderer* renderer, int w, int h) : _window(window), _w(w), _h(h)
 {
 	background = new Rect(w, h, 0, 0, bkgdMenu_path);
 	createButtons();
+	txtHost = new Textbox(w,h,0,0,renderer, comicFont_path, 25, "IP: ", txtHost_Handler);
+	txtHost = new Textbox(w,h,0,0,renderer, comicFont_path, 25, "IP: ", txtJoin_Handler);
 }
 
 Starting::~Starting()
@@ -31,15 +63,32 @@ Starting::~Starting()
 	btnCredits->~ButtonV2();
 	btnHost->~ButtonV2();
 	btnJoin->~ButtonV2();
+	if (txtHostVisible) {
+		txtHost->~Textbox();
+	}
+	if (txtJoinVisible) {
+		txtJoin->~Textbox();
+	}
 }
 
 
 void Starting::draw()
 {
 	background->draw();
-	btnJoin->draw();
-	btnHost->draw();
 	btnCredits->draw();
+	if (txtJoinVisible) {
+		txtJoin->draw();
+	}
+	else {
+		btnJoin->draw();
+	}
+
+	if (txtHostVisible) {
+		txtHost->draw();
+	}
+	else {
+		btnHost->draw();
+	}
 }
 
 void Starting::createButtons()

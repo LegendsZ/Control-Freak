@@ -1,6 +1,5 @@
 #pragma once
 #include "..\\Graphics\Window.h"
-#include "..\\Graphics\Button.h"
 #include "..\\Graphics\Rect.h"
 #include "..\\Graphics\Text.h"
 #include "..\fileLocations.h"

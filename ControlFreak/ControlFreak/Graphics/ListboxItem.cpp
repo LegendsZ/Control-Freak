@@ -14,13 +14,6 @@ ListboxItem::ListboxItem(SDL_Renderer* renderer, std::string fontPath, int w, in
 		Text* item = new Text(renderer, fontPath, 20, columns[i], { 255,0,0,255 }, { (Uint8)r,(Uint8)g,(Uint8)b,(Uint8)a });
 
 
-		/*SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);
-		SDL_RenderFillRect(renderer, &item->m_TextRect);*/
-
-		//SDL_Texture* m_Texture = loadFont(renderer, font_path, font_size, message, color);
-		//SDL_QueryTexture(m_Texture, nullptr, nullptr, &item->m_TextRect.w, &item->m_TextRect.h);
-
-
 		item->setPos(xL, y);
 		this->columns.push_back(item);
 		xL = xL == x ? xL + w / 5 : xL + w/2;

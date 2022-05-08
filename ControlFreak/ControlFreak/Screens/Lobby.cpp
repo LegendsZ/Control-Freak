@@ -17,7 +17,7 @@ Lobby::Lobby(SDL_Window* window, SDL_Renderer* renderer, int w, int h)
 	sampleHostText->setPos((w - 400) / 2, h / 10 );
 	btnSettings = new ButtonV2(window, 50, 50, 25, h - 50, "./res/gear.png", btnSettings_Handler);
 
-	listbox = new Listbox(renderer, comicFont_path, 400, 150, (w/2) - (200), 150, "LISTBOX");
+	listbox = new Listbox(renderer, comicFont_path, 400, 150, (w/2) - (200), 150, "LISTBOX",255,255,255,255);
 	std::vector<std::string> rowTest = { "1","192.168.0.31","READY" };
 	std::vector<std::string> rowTestTwo = { "2","192.168.0.68","UNREADY" };
 	listbox->addItem(rowTestTwo);

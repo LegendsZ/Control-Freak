@@ -2,6 +2,8 @@
 #include <string>
 #include <vector>
 
+const std::string version = "1.0.0.0"; //version control
+
 //audio files
 //const std::string menuSound_path = "res/mainmenuMP3.mp3";
 

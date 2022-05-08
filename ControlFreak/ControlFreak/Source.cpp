@@ -13,9 +13,9 @@
 #include "SDL.h"
 #include "Screens/Starting.h"
 #include "Screens/MiniMenu.h"
-#undef main
+#include "Screens/Game.h"
 
-const std::string version = "1.0.0.0"; //version control
+#undef main
 
 int main() {
 	std::string titleString = "title Control Freak v" + version;
@@ -29,8 +29,6 @@ int main() {
 	Uint32 lastFrame = SDL_GetTicks();
 	UINT32 elapsedDraw = SDL_GetTicks();
 	UINT32 elapsedComp = SDL_GetTicks();
-
-	bool gameActive = false;
 	bool STARTACTIVE = true;
 	SDL_Event event;
 
@@ -42,30 +40,11 @@ int main() {
 	Lobby lobby(window.m_Window, window.renderer, window.m_Width, window.m_Height);
 	Credits credit(window.m_Window, window.renderer, window.m_Width, window.m_Height);
 	MiniMenu menu(window.m_Window, window.renderer, window.m_Width, window.m_Height);
-
+	Game* game = nullptr;
 	
 	while (!window.isClosed())
 	{
-		//Original here you can delete this once u feel comfortable with what we have here.
-		/*while (SDL_PollEvent(&event))
-		{
-			if (mainpage.getLobbyStatus())
-			{
-				lobby.draw();
-				lobby.pollEvents(event);
-			}else if (mainpage.getCreditsStatus())
-			{
-				credit.draw();
-				credit.pollEvents(event);
-			}
-			else
-			{
-				mainpage.draw();
-				mainpage.pollEvents(event);
-			}
-			
-			window.clear();
-		}*/
+		//polling calls here
 		SDL_PollEvent(&event);
 		if (mainpage.getLobbyStatus())
 		{
@@ -83,13 +62,46 @@ int main() {
 				menu.pollEvents(event);
 			}
 		}
-		else
+		else if (mainpage.status)
 		{
 			mainpage.pollEvents(event);
+		}
+		else {
+			game->pollEvents(event);
 		}
 
 		if (1000 / COMPCAP <= SDL_GetTicks() - elapsedComp) { //to cap computation
 			//LOGIC CALLS HERE
+
+			if (Connector::clientOBJ != nullptr) {//client below
+				if (Connector::clientOBJ->recieved.size() > 0) {
+					if (Game::gameActive) {
+						
+					}
+					else {
+						if (Connector::clientOBJ->recieved.back() == "VERSIONGOOD") { //check for whatever data input
+							Connector::clientOBJ->sendData(Connector::myIPV4 + "ISREADY");
+							int index = 0;
+							Lobby::type = NONHOST;
+							Lobby::status = !Lobby::status;
+						}
+						else if (Connector::clientOBJ->recieved.back() == "VERSIONBAD") { //check for whatever data input
+							std::cout << "\n\nVersion is out of date! Please update.\n\n";
+							system("pause");
+						}
+						else if (Connector::clientOBJ->recieved.back() == "GAMESTART") { //check for whatever data input
+							game = new Game(window.m_Width, window.m_Height,0,0);
+							Connector::clientOBJ->sendData(Connector::myIPV4 + "GAMESTARTED");
+							Game::gameActive = true;
+						}
+					}
+					Connector::clientOBJ->recieved.pop_back();
+				}
+			}
+			else { //server below
+
+			}
+
 			elapsedComp = SDL_GetTicks();
 		}
 		if (1000 / FRAMESCAP <= SDL_GetTicks() - elapsedDraw) { //to cap frames
