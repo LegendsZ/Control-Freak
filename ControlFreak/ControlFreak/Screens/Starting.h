@@ -1,8 +1,6 @@
 #pragma once
-#include "..\fileLocations.h"
 #include "Lobby.h"
 #include "Credits.h"
-#include "..\\Graphics\ButtonV2.h"
 #include "..//Graphics/Textbox.h";
 
 class Starting
@@ -27,7 +25,7 @@ public:
 
 public:
 	void draw();
-	void createButtons();
+	void createButtons(SDL_Renderer* renderer);
 	void pollEvents(SDL_Event event);
 	bool getLobbyStatus();
 	bool getCreditsStatus();

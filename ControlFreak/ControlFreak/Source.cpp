@@ -4,12 +4,11 @@
 	Version: 1.0.0.0
 */
 
-#define _WINSOCK_DEPRECATED_NO_WARNINGS
+#pragma once
+//#define _WINSOCK_DEPRECATED_NO_WARNINGS
 #include <iostream> //debugging/testing purposes
-#include "Client/ClientData.h"
 #include "Graphics/Window.h"
 #include "Graphics/windowComponentPTRContainer.h"
-#include "fileLocations.h"
 #include "SDL.h"
 #include "Screens/Starting.h"
 #include "Screens/MiniMenu.h"
@@ -27,8 +26,8 @@ int main() {
 	int FPS = 0;
 
 	Uint32 lastFrame = SDL_GetTicks();
-	UINT32 elapsedDraw = SDL_GetTicks();
-	UINT32 elapsedComp = SDL_GetTicks();
+	Uint32 elapsedDraw = SDL_GetTicks();
+	Uint32 elapsedComp = SDL_GetTicks();
 	bool STARTACTIVE = true;
 	SDL_Event event;
 
@@ -62,7 +61,7 @@ int main() {
 				menu.pollEvents(event);
 			}
 		}
-		else if (mainpage.status)
+		else if (game == nullptr || !game->status)
 		{
 			mainpage.pollEvents(event);
 		}

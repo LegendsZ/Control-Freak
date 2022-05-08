@@ -145,6 +145,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Client\ClientData.cpp" />
     <ClCompile Include="Data\player.cpp" />
     <ClCompile Include="Graphics\ButtonV2.cpp" />
     <ClCompile Include="Graphics\Button.cpp" />

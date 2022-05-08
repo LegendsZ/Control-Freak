@@ -52,9 +52,7 @@ void txtJoin_Handler() {
 Starting::Starting(SDL_Window* window, SDL_Renderer* renderer, int w, int h) : _window(window), _w(w), _h(h)
 {
 	background = new Rect(w, h, 0, 0, bkgdMenu_path);
-	createButtons();
-	txtHost = new Textbox(w,h,0,0,renderer, comicFont_path, 25, "IP: ", txtHost_Handler);
-	txtHost = new Textbox(w,h,0,0,renderer, comicFont_path, 25, "IP: ", txtJoin_Handler);
+	createButtons(renderer);
 }
 
 Starting::~Starting()
@@ -91,7 +89,7 @@ void Starting::draw()
 	}
 }
 
-void Starting::createButtons()
+void Starting::createButtons(SDL_Renderer* renderer)
 {
 	int btnWidth = 200;
 	int btnHeight = 100;
@@ -99,9 +97,12 @@ void Starting::createButtons()
 	int spaceInBetween = (_w - (numBtns * btnWidth)) / (numBtns + 1); //quick maths
 	int spaceBelow = 25;
 
-	btnHost = new ButtonV2(_window, btnWidth, btnHeight, spaceInBetween, _h - (btnHeight + spaceBelow), bkgdbtnHost_path, btnJoin_Handler);
-	btnJoin = new ButtonV2(_window, btnWidth, btnHeight, spaceInBetween * 2 + btnWidth, _h - (btnHeight + spaceBelow), bkgdbtnHost_path,btnHost_Handler);
+	btnHost = new ButtonV2(_window, btnWidth, btnHeight, spaceInBetween, _h - (btnHeight + spaceBelow), bkgdbtnHost_path, btnHost_Handler);
+	btnJoin = new ButtonV2(_window, btnWidth, btnHeight, spaceInBetween * 2 + btnWidth, _h - (btnHeight + spaceBelow), bkgdbtnHost_path,btnJoin_Handler);
 	btnCredits = new ButtonV2(_window, btnWidth, btnHeight, spaceInBetween * 3 + 2*btnWidth, _h - (btnHeight + spaceBelow), bkgdbtnCredit_path, btnCredits_Handler);
+
+	txtHost = new Textbox(btnWidth, btnHeight, spaceInBetween, _h - (btnHeight + spaceBelow), renderer, comicFont_path, 25, "PORT= ", txtHost_Handler);
+	txtJoin = new Textbox(btnWidth, btnHeight, spaceInBetween * 2 + btnWidth, _h - (btnHeight + spaceBelow), renderer, comicFont_path, 25, "IP= ", txtJoin_Handler);
 }
 
 

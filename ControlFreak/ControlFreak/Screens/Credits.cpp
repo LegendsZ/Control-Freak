@@ -26,7 +26,6 @@ void Credits::pollEvents(SDL_Event event)
 	{
 	case SDLK_ESCAPE:
 	{
-		Starting::status = true;
 		status = false;
 		break;
 	}

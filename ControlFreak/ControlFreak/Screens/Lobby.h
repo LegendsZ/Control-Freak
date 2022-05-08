@@ -3,10 +3,12 @@
 //graphics stuff
 #include "../Graphics/Listbox.h"
 #include "MiniMenu.h"
+#include "../fileLocations.h"
+#include "../Graphics/ButtonV2.h"
 
 //networking stuff
-#include "../Client/client.h"
 #include "../Client/ClientData.h"
+//#include "../Client/client.h"
 #include "../Server/server.h"
 
 #define HOST 1

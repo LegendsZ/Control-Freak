@@ -1,9 +1,5 @@
 #pragma once
 
-#include "..\\Graphics\Window.h"
-#include "..\\Graphics\Rect.h"
-#include "..\\Graphics\Text.h"
-#include "..\fileLocations.h"
 #include "MiniMenu.h"
 
 class Credits
