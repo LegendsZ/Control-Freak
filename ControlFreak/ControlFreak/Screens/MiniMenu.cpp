@@ -1,35 +1,46 @@
 #include "MiniMenu.h"
 
+void btnSettings_Handler() {
+	/*Lobby::status = !Lobby::status;
+	Lobby::type = NONHOST;*/
+}
+void btnQuit_Handler() {
+	ScreenStatus::StartingStatus = true;
+	ScreenStatus::MiniMenuStatus = false;
+	ScreenStatus::LobbyStatus = false;
+}
+
+
 bool MiniMenu::status = false;
 
 MiniMenu::MiniMenu(SDL_Window* window, SDL_Renderer* renderer, int w, int h): _w(w), _h(h)
 {
-	options = new Text(renderer, comicFont_path, 20, "Options", { 100, 50, 0 }, { 0xff,0xff,0xff });
-	options->setPos(25, h - 75);
-	placeholder1 = new Text(renderer, comicFont_path, 20, "Placeholder", { 100, 50, 0 }, { 0xff,0xff,0xff });
-	placeholder1->setPos(25, h - 100);
+	background = new Rect(w, h, 0, 0, bkgdSettingsMenu_path);
+	btnSettings = new ButtonV2(window, 200, 150, (w - 200) / 2, (h - 300) / 2, bkgdSettings_path, btnSettings_Handler);
+	btnQuit = new ButtonV2(window, 200, 150, (w - 200) / 2, (h + 100) / 2, bkgdQuit_path, btnQuit_Handler);
+
 }
 
 
 MiniMenu::~MiniMenu()
 {
-	options->~Text();
-	placeholder1->~Text();
+	btnSettings->~ButtonV2();
+	btnQuit->~ButtonV2();
+	background->~Rect();
 }
 
 void MiniMenu::draw()
 {
-	options->draw();
-	placeholder1->draw();
+	background->draw();
+	btnSettings->draw();
+	btnQuit->draw();
+	
 }
 
 
 void MiniMenu::pollEvents(SDL_Event event)
 {
-	if (event.key.keysym.sym == SDLK_o)
-	{
-		status = false;
-	}
+	btnQuit->pollEvents(event);
 }
 
 bool MiniMenu::getStatus()

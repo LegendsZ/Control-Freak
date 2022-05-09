@@ -1,7 +1,7 @@
 #pragma once
 
 #include "MiniMenu.h"
-
+#include "ScreenStatus.h"
 class Credits
 {
 public:
@@ -10,6 +10,7 @@ public:
 	int _w;
 	int _h;
 	static bool status;
+	Rect* background;
 	Text* creator1;
 	Text* creator2;
 	Text* creator3;

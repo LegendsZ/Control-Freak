@@ -16,7 +16,7 @@ public:
 
 	void pollEvents(SDL_Event& event) override {
 		if (event.type == SDL_MOUSEBUTTONUP) {
-			if (Window::mousePos[0] >= m_Rect->getPos()[0] && Window::mousePos[0] <= m_Rect->getPos()[0] + m_Rect->m_Width && Window::mousePos[1] >= m_Rect->getPos()[1] && Window::mousePos[1] <= m_Rect->getPos()[1] + m_Rect->m_Height) {
+			if (event.motion.x >= m_Rect->getPos()[0] && event.motion.x <= m_Rect->getPos()[0] + m_Rect->m_Width && event.motion.y >= m_Rect->getPos()[1] && event.motion.y <= m_Rect->getPos()[1] + m_Rect->m_Height) {
 				m_Selected = true;
 				SDL_StartTextInput();
 			}

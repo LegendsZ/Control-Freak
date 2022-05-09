@@ -9,11 +9,16 @@ const std::string version = "1.0.0.0"; //version control
 
 //images
 const std::string bkgdMenu_path = "res/bkgdMenu.png";
+const std::string bkgdMenuV2_path = "res/bkgdMenuV2.png";
+const std::string bkgdMenuV201_path = "res/bkgdMenuV201.png";
+const std::string bkgdSettingsMenu_path = "res/bkgdSettingsMenu.png";
 const std::string bkgdGameMenu_path = "res/bkgdGame.png";
 const std::string bkgdbtnPlay_path = "res/bkgdbtnPlay.png";
 const std::string bkgdbtnReset_path = "res/bkgdbtnReset.png";
 const std::string bkgdbtnCredit_path = "res/bkgdbtnCredit.png";
 const std::string bkgdbtnHost_path = "res/bkgdbtnHost.png";
+const std::string bkgdSettings_path = "res/bkgdSettingsButton.png";
+const std::string bkgdQuit_path = "res/bkgdQuit.png";
 
 const std::string icon_path = "res/icon.png";
 //fonts

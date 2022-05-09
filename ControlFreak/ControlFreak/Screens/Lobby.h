@@ -5,6 +5,7 @@
 #include "MiniMenu.h"
 #include "../fileLocations.h"
 #include "../Graphics/ButtonV2.h"
+#include "ScreenStatus.h"
 
 //networking stuff
 #include "../Client/ClientData.h"

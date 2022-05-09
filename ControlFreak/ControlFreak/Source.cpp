@@ -13,6 +13,7 @@
 #include "Screens/Starting.h"
 #include "Screens/MiniMenu.h"
 #include "Screens/Game.h"
+#include "Screens/ScreenStatus.h"
 
 #undef main
 
@@ -45,23 +46,19 @@ int main() {
 	{
 		//polling calls here
 		SDL_PollEvent(&event);
-		if (mainpage.getLobbyStatus())
+		if (ScreenStatus::MiniMenuStatus)
+		{
+			menu.pollEvents(event);
+		}
+		if (ScreenStatus::LobbyStatus)
 		{
 			lobby.pollEvents(event);
-			if (menu.getStatus())
-			{
-				menu.pollEvents(event);
-			}
 		}
-		else if (mainpage.getCreditsStatus())
+		else if (ScreenStatus::CreditsStatus)
 		{
 			credit.pollEvents(event);
-			if (menu.getStatus())
-			{
-				menu.pollEvents(event);
-			}
 		}
-		else if (game == nullptr || !game->status)
+		else if (ScreenStatus::StartingStatus)
 		{
 			mainpage.pollEvents(event);
 		}
@@ -105,23 +102,22 @@ int main() {
 		}
 		if (1000 / FRAMESCAP <= SDL_GetTicks() - elapsedDraw) { //to cap frames
 			//DRAW CALLS HERE
-			if (mainpage.getLobbyStatus())
+			if (ScreenStatus::LobbyStatus)
 			{
-				lobby.draw();
-				if (menu.getStatus())
+				if (ScreenStatus::MiniMenuStatus)
 				{
 					menu.draw();
 				}
+				else
+				{
+					lobby.draw();
+				}
 			}
-			else if (mainpage.getCreditsStatus())
+			else if (ScreenStatus::CreditsStatus)
 			{
 				credit.draw();
-				if (menu.getStatus())
-				{
-					menu.draw();
-				}
 			}
-			else
+			else if (ScreenStatus::StartingStatus)
 			{
 				mainpage.draw();
 			}

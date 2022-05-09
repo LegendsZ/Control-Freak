@@ -2,6 +2,7 @@
 #include "Lobby.h"
 #include "Credits.h"
 #include "..//Graphics/Textbox.h";
+#include "ScreenStatus.h"
 
 class Starting
 {

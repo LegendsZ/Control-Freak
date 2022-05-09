@@ -19,7 +19,7 @@ void btnHost_Handler() {
 }
 void btnCredits_Handler() {
 	std::cout << "Credits clicked\n";
-	Credits::status = !Credits::status;
+	ScreenStatus::CreditsStatus = !ScreenStatus::CreditsStatus;
 }
 
 void txtHost_Handler() {
@@ -27,6 +27,8 @@ void txtHost_Handler() {
 	if (!server::serverOBJ->autoStart()) {
 		return; //error handle this
 	}
+	ScreenStatus::LobbyStatus = true;
+	Lobby::type = HOST;
 }
 void txtJoin_Handler() {
 	if (Connector::connectIP == "") {
@@ -51,7 +53,7 @@ void txtJoin_Handler() {
 
 Starting::Starting(SDL_Window* window, SDL_Renderer* renderer, int w, int h) : _window(window), _w(w), _h(h)
 {
-	background = new Rect(w, h, 0, 0, bkgdMenu_path);
+	background = new Rect(w, h, 0, 0, bkgdMenuV2_path);
 	createButtons(renderer);
 }
 
@@ -101,24 +103,35 @@ void Starting::createButtons(SDL_Renderer* renderer)
 	btnJoin = new ButtonV2(_window, btnWidth, btnHeight, spaceInBetween * 2 + btnWidth, _h - (btnHeight + spaceBelow), bkgdbtnHost_path,btnJoin_Handler);
 	btnCredits = new ButtonV2(_window, btnWidth, btnHeight, spaceInBetween * 3 + 2*btnWidth, _h - (btnHeight + spaceBelow), bkgdbtnCredit_path, btnCredits_Handler);
 
-	txtHost = new Textbox(btnWidth, btnHeight, spaceInBetween, _h - (btnHeight + spaceBelow), renderer, comicFont_path, 25, "PORT= ", txtHost_Handler);
-	txtJoin = new Textbox(btnWidth, btnHeight, spaceInBetween * 2 + btnWidth, _h - (btnHeight + spaceBelow), renderer, comicFont_path, 25, "IP= ", txtJoin_Handler);
+	txtHost = new Textbox(btnWidth, btnHeight, spaceInBetween, _h - (btnHeight + spaceBelow), renderer, comicFont_path, 25, "PORT=     ", txtHost_Handler);
+	txtJoin = new Textbox(btnWidth, btnHeight, spaceInBetween * 2 + btnWidth, _h - (btnHeight + spaceBelow), renderer, comicFont_path, 25, "IP=      ", txtJoin_Handler);
 }
 
 
 void Starting::pollEvents(SDL_Event event)
 {
 	btnCredits->pollEvents(event);
-	btnJoin->pollEvents(event);
-	btnHost->pollEvents(event);
-	status = !Lobby::status && !Credits::status;
+	if (!Starting::txtJoinVisible)
+	{
+		btnJoin->pollEvents(event);
+	}
+	else
+	{
+		txtJoin->pollEvents(event);
+	}
+	if (!Starting::txtHostVisible)
+	{
+		btnHost->pollEvents(event);
+	}
+	else
+	{
+		txtHost->pollEvents(event);
+	}
+	ScreenStatus::StartingStatus = !ScreenStatus::LobbyStatus && !ScreenStatus::CreditsStatus;
 	switch (event.key.keysym.sym)
 	{
 	
-	case SDLK_p:
-	{
-		MiniMenu::status = true;
-	}
+	
 
 	}
 }
