@@ -1,8 +1,9 @@
 #include "MiniMenu.h"
 
 void btnSettings_Handler() {
-	/*Lobby::status = !Lobby::status;
-	Lobby::type = NONHOST;*/
+	ScreenStatus::SettingsStatus = true;
+	ScreenStatus::MiniMenuStatus = false;
+	ScreenStatus::LobbyStatus = false;
 }
 void btnQuit_Handler() {
 	ScreenStatus::StartingStatus = true;
@@ -40,6 +41,7 @@ void MiniMenu::draw()
 
 void MiniMenu::pollEvents(SDL_Event event)
 {
+	btnSettings->pollEvents(event);
 	btnQuit->pollEvents(event);
 }
 

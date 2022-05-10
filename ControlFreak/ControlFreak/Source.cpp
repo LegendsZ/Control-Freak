@@ -14,6 +14,7 @@
 #include "Screens/MiniMenu.h"
 #include "Screens/Game.h"
 #include "Screens/ScreenStatus.h"
+#include "Screens/Settings.h"
 
 #undef main
 
@@ -40,6 +41,7 @@ int main() {
 	Lobby lobby(window.m_Window, window.renderer, window.m_Width, window.m_Height);
 	Credits credit(window.m_Window, window.renderer, window.m_Width, window.m_Height);
 	MiniMenu menu(window.m_Window, window.renderer, window.m_Width, window.m_Height);
+	Settings settings(window.m_Window, window.renderer, window.m_Width, window.m_Height);
 	Game* game = nullptr;
 	
 	while (!window.isClosed())
@@ -53,6 +55,10 @@ int main() {
 		if (ScreenStatus::LobbyStatus)
 		{
 			lobby.pollEvents(event);
+		}
+		else if (ScreenStatus::SettingsStatus)
+		{
+			settings.pollEvents(event);
 		}
 		else if (ScreenStatus::CreditsStatus)
 		{
@@ -112,6 +118,10 @@ int main() {
 				{
 					lobby.draw();
 				}
+			}
+			else if (ScreenStatus::SettingsStatus)
+			{
+				settings.draw();
 			}
 			else if (ScreenStatus::CreditsStatus)
 			{

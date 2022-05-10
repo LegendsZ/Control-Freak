@@ -15,8 +15,9 @@ const std::string bkgdSettingsMenu_path = "res/bkgdSettingsMenu.png";
 const std::string bkgdGameMenu_path = "res/bkgdGame.png";
 const std::string bkgdbtnPlay_path = "res/bkgdbtnPlay.png";
 const std::string bkgdbtnReset_path = "res/bkgdbtnReset.png";
-const std::string bkgdbtnCredit_path = "res/bkgdbtnCredit.png";
-const std::string bkgdbtnHost_path = "res/bkgdbtnHost.png";
+const std::string bkgdbtnCredit_path = "res/bkgdbtnCreditV2.png";
+const std::string bkgdbtnHost_path = "res/bkgdbtnHostV2.png";
+const std::string bkgdbtnJoin_path = "res/bkgdbtnJoin.png";
 const std::string bkgdSettings_path = "res/bkgdSettingsButton.png";
 const std::string bkgdQuit_path = "res/bkgdQuit.png";
 

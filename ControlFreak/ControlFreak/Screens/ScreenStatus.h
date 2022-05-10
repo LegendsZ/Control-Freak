@@ -8,5 +8,6 @@ public:
 	static bool LobbyStatus;
 	static bool MiniMenuStatus;
 	static bool StartingStatus;
+	static bool SettingsStatus;
 
 };

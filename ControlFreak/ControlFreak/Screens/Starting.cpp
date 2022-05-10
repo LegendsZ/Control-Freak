@@ -100,7 +100,7 @@ void Starting::createButtons(SDL_Renderer* renderer)
 	int spaceBelow = 25;
 
 	btnHost = new ButtonV2(_window, btnWidth, btnHeight, spaceInBetween, _h - (btnHeight + spaceBelow), bkgdbtnHost_path, btnHost_Handler);
-	btnJoin = new ButtonV2(_window, btnWidth, btnHeight, spaceInBetween * 2 + btnWidth, _h - (btnHeight + spaceBelow), bkgdbtnHost_path,btnJoin_Handler);
+	btnJoin = new ButtonV2(_window, btnWidth, btnHeight, spaceInBetween * 2 + btnWidth, _h - (btnHeight + spaceBelow), bkgdbtnJoin_path,btnJoin_Handler);
 	btnCredits = new ButtonV2(_window, btnWidth, btnHeight, spaceInBetween * 3 + 2*btnWidth, _h - (btnHeight + spaceBelow), bkgdbtnCredit_path, btnCredits_Handler);
 
 	txtHost = new Textbox(btnWidth, btnHeight, spaceInBetween, _h - (btnHeight + spaceBelow), renderer, comicFont_path, 25, "PORT=     ", txtHost_Handler);

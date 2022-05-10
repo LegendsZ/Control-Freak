@@ -161,6 +161,7 @@
     <ClCompile Include="Screens\Lobby.cpp" />
     <ClCompile Include="Screens\MiniMenu.cpp" />
     <ClCompile Include="Screens\ScreenStatus.cpp" />
+    <ClCompile Include="Screens\Settings.cpp" />
     <ClCompile Include="Screens\Starting.cpp" />
     <ClCompile Include="Server\server.cpp" />
     <ClCompile Include="Source.cpp" />
@@ -185,6 +186,7 @@
     <ClInclude Include="Screens\Lobby.h" />
     <ClInclude Include="Screens\MiniMenu.h" />
     <ClInclude Include="Screens\ScreenStatus.h" />
+    <ClInclude Include="Screens\Settings.h" />
     <ClInclude Include="Screens\Starting.h" />
     <ClInclude Include="Server\server.h" />
   </ItemGroup>
