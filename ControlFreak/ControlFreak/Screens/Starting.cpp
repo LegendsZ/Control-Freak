@@ -17,11 +17,15 @@ void btnHost_Handler() {
 	/*Lobby::status = !Lobby::status;
 	Lobby::type = HOST;*/
 }
+void btnSettings_Handler2() {
+	std::cout << "Settings clicked\n";
+	/*Lobby::status = !Lobby::status;
+	Lobby::type = NONHOST;*/
+}
 void btnCredits_Handler() {
 	std::cout << "Credits clicked\n";
 	ScreenStatus::CreditsStatus = !ScreenStatus::CreditsStatus;
 }
-
 void txtHost_Handler() {
 	server::serverOBJ = new server(atoi(Starting::txtHost->m_Text->text.c_str()));
 	if (!server::serverOBJ->autoStart()) {
@@ -51,9 +55,10 @@ void txtJoin_Handler() {
 	}
 }
 
-Starting::Starting(SDL_Window* window, SDL_Renderer* renderer, int w, int h) : _window(window), _w(w), _h(h)
+Starting::Starting(Window* window, SDL_Renderer* renderer, int w, int h) : _window(window->m_Window), _w(w), _h(h)
 {
-	background = new Rect(w, h, 0, 0, bkgdMenuV2_path);
+	background = new Rect(window->m_Width, window->m_Height, 0, 0, 22, 157, 196, 255);
+	title = new Rect(window->m_Width / 2, window->m_Height / 2, window->m_Width / 4, window->m_Height / 9, bkgdMenuV3_path);
 	createButtons(renderer);
 }
 
@@ -69,6 +74,8 @@ Starting::~Starting()
 	if (txtJoinVisible) {
 		txtJoin->~Textbox();
 	}
+	btnSettings->~ButtonV2();
+	background->~Rect();
 }
 
 
@@ -89,22 +96,24 @@ void Starting::draw()
 	else {
 		btnHost->draw();
 	}
+	btnSettings->draw();
+	title->draw();
 }
 
 void Starting::createButtons(SDL_Renderer* renderer)
 {
-	int btnWidth = 200;
-	int btnHeight = 100;
-	int numBtns = 3;
-	int spaceInBetween = (_w - (numBtns * btnWidth)) / (numBtns + 1); //quick maths
-	int spaceBelow = 25;
+	int btnWidth = _w / 8;
+	int btnHeight = _h / 9;
+	//int numBtns = 3;
+	int spaceInBetween = _w / 16; //quick maths
+	int spaceBelow = _h / 9;
 
-	btnHost = new ButtonV2(_window, btnWidth, btnHeight, spaceInBetween, _h - (btnHeight + spaceBelow), bkgdbtnHost_path, btnHost_Handler);
-	btnJoin = new ButtonV2(_window, btnWidth, btnHeight, spaceInBetween * 2 + btnWidth, _h - (btnHeight + spaceBelow), bkgdbtnJoin_path,btnJoin_Handler);
-	btnCredits = new ButtonV2(_window, btnWidth, btnHeight, spaceInBetween * 3 + 2*btnWidth, _h - (btnHeight + spaceBelow), bkgdbtnCredit_path, btnCredits_Handler);
-
-	txtHost = new Textbox(btnWidth, btnHeight, spaceInBetween, _h - (btnHeight + spaceBelow), renderer, comicFont_path, 25, "PORT=     ", txtHost_Handler);
-	txtJoin = new Textbox(btnWidth, btnHeight, spaceInBetween * 2 + btnWidth, _h - (btnHeight + spaceBelow), renderer, comicFont_path, 25, "IP=      ", txtJoin_Handler);
+	btnHost = new ButtonV2(_window, btnWidth, btnHeight, spaceInBetween * 2.5, _h - 2 * spaceBelow, bkgdbtnHost_path, btnHost_Handler);
+	btnJoin = new ButtonV2(_window, btnWidth, btnHeight, spaceInBetween * 5.5, _h - 2 * spaceBelow, bkgdbtnJoin_path,btnJoin_Handler);
+	btnCredits = new ButtonV2(_window, btnWidth, btnHeight, spaceInBetween * 8.5, _h - 2 * spaceBelow, bkgdbtnCredit_path, btnCredits_Handler);
+	btnSettings = new ButtonV2(_window, btnWidth, btnHeight, spaceInBetween * 11.5, _h - 2 * spaceBelow, bkgdbtnSettings_path, btnSettings_Handler2);
+	txtHost = new Textbox(btnWidth, btnHeight, spaceInBetween * 2.5, _h - 2 * spaceBelow, renderer, comicFont_path, 25, "PORT=     ", txtHost_Handler);
+	txtJoin = new Textbox(btnWidth, btnHeight, spaceInBetween * 5.5, _h - 2 * spaceBelow, renderer, comicFont_path, 25, "IP=      ", txtJoin_Handler);
 }
 
 

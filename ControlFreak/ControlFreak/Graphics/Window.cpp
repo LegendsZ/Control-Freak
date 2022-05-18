@@ -111,7 +111,7 @@ bool Window::init() {
 		return false;
 	}
 
-	m_Window = SDL_CreateWindow(m_Title.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, m_Width, m_Height, SDL_WINDOW_HIDDEN);
+	m_Window = SDL_CreateWindow(m_Title.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, m_Width, m_Height, SDL_WINDOW_HIDDEN | SDL_WINDOW_RESIZABLE);
 
 	if (m_Window == nullptr) {
 		std::cerr << "\nFailed to create window!\n";

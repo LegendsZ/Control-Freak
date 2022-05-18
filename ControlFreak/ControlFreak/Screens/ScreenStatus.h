@@ -9,5 +9,6 @@ public:
 	static bool MiniMenuStatus;
 	static bool StartingStatus;
 	static bool SettingsStatus;
+	static bool ResChanged;
 
 };

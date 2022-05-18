@@ -9,11 +9,14 @@
 class Settings
 {
 public:
-	Settings(SDL_Window* window, SDL_Renderer* renderer, int w, int h);
+	Settings(Window* window, SDL_Renderer* renderer, int w, int h);
 	~Settings();
 	void draw();
 	void pollEvents(SDL_Event event);
 	Rect* background;
 	Text* resolution;
+
+	static SDL_Window* _window;
+	ButtonV2* btnRes2560;
 
 };

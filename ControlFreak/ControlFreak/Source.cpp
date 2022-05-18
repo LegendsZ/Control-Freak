@@ -33,15 +33,14 @@ int main() {
 	bool STARTACTIVE = true;
 	SDL_Event event;
 
-	Window window("Control Freak | Menu", 700, 600);
+	Window window("Control Freak | Menu", 1280, 720);
 	window.setWindowIconFilePath(icon_path);
-	
 	SDL_ShowWindow(window.m_Window);
-	Starting mainpage(window.m_Window, window.renderer, window.m_Width, window.m_Height);
+	Starting mainpage(&window, window.renderer, window.m_Width, window.m_Height);
 	Lobby lobby(window.m_Window, window.renderer, window.m_Width, window.m_Height);
 	Credits credit(window.m_Window, window.renderer, window.m_Width, window.m_Height);
 	MiniMenu menu(window.m_Window, window.renderer, window.m_Width, window.m_Height);
-	Settings settings(window.m_Window, window.renderer, window.m_Width, window.m_Height);
+	Settings settings(&window, window.renderer, window.m_Width, window.m_Height);
 	Game* game = nullptr;
 	
 	while (!window.isClosed())
