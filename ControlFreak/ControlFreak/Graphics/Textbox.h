@@ -6,7 +6,7 @@ private:
 	bool m_Selected = false;
 
 public:
-	Textbox(int w, int h, int x, int y, SDL_Renderer* renderer, const std::string& font_path, int font_size, const std::string& message, void (*m_ClickEvent)());
+	Textbox(int w, int h, int x, int y, SDL_Renderer* renderer, const std::string& font_path, int font_size, const std::string& message, void (*m_ClickEvent)(), SDL_Color bkgd, SDL_Color frgd);
 	~Textbox() {
 		m_Rect->~Rect();
 		m_Text->~Text();
