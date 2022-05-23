@@ -1,7 +1,2 @@
-﻿  Lobby.cpp
-C:\Users\WINDOWS\Documents\GitHub\Control-Freak\ControlFreak\ControlFreak\Client\client.h(65,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-  Starting.cpp
-C:\Users\WINDOWS\Documents\GitHub\Control-Freak\ControlFreak\ControlFreak\Client\client.h(65,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\WINDOWS\Documents\GitHub\Control-Freak\ControlFreak\ControlFreak\Screens\Starting.h(4,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-  Generating Code...
-  ControlFreak.vcxproj -> C:\Users\WINDOWS\Documents\GitHub\Control-Freak\ControlFreak\x64\Debug\ControlFreak.exe
+﻿  Text.cpp
+  ControlFreak.vcxproj -> C:\Users\16479\Documents\GitHub\Control-Freak\ControlFreak\x64\Debug\ControlFreak.exe
