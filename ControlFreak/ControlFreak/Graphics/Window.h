@@ -22,7 +22,7 @@ public:
 	bool close();
 
 	void draw() override;
-
+	void updateSize();
 	Mix_Music* menuSound = nullptr;
 	Mix_Music* gameSound = nullptr;
 	Mix_Chunk* laser_effect = nullptr;

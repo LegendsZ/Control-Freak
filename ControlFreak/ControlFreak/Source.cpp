@@ -37,9 +37,9 @@ int main() {
 	window.setWindowIconFilePath(icon_path);
 	SDL_ShowWindow(window.m_Window);
 	Starting mainpage(&window, window.renderer, window.m_Width, window.m_Height);
-	Lobby lobby(window.m_Window, window.renderer, window.m_Width, window.m_Height);
-	Credits credit(window.m_Window, window.renderer, window.m_Width, window.m_Height);
-	MiniMenu menu(window.m_Window, window.renderer, window.m_Width, window.m_Height);
+	Lobby lobby(&window, window.renderer, window.m_Width, window.m_Height);
+	Credits credit(&window, window.renderer, window.m_Width, window.m_Height);
+	MiniMenu menu(&window, window.renderer, window.m_Width, window.m_Height);
 	Settings settings(&window, window.renderer, window.m_Width, window.m_Height);
 	Game* game = nullptr;
 	
@@ -51,13 +51,13 @@ int main() {
 		{
 			menu.pollEvents(event);
 		}
-		if (ScreenStatus::LobbyStatus)
-		{
-			lobby.pollEvents(event);
-		}
-		else if (ScreenStatus::SettingsStatus)
+		if (ScreenStatus::SettingsStatus)
 		{
 			settings.pollEvents(event);
+		}
+		else if (ScreenStatus::LobbyStatus)
+		{
+			lobby.pollEvents(event);
 		}
 		else if (ScreenStatus::CreditsStatus)
 		{
@@ -107,7 +107,21 @@ int main() {
 		}
 		if (1000 / FRAMESCAP <= SDL_GetTicks() - elapsedDraw) { //to cap frames
 			//DRAW CALLS HERE
-			if (ScreenStatus::LobbyStatus)
+			if (ScreenStatus::ResChanged)
+			{
+				window.updateSize();
+				mainpage.changeRes();
+				credit.changeRes();
+				menu.changeRes();
+				lobby.changeRes();
+				std::cout << "BITCHBITCH";
+				ScreenStatus::ResChanged = false;
+			}
+			if (ScreenStatus::SettingsStatus)
+			{
+				settings.draw();
+			}
+			else if (ScreenStatus::LobbyStatus)
 			{
 				if (ScreenStatus::MiniMenuStatus)
 				{
@@ -117,10 +131,6 @@ int main() {
 				{
 					lobby.draw();
 				}
-			}
-			else if (ScreenStatus::SettingsStatus)
-			{
-				settings.draw();
 			}
 			else if (ScreenStatus::CreditsStatus)
 			{
@@ -136,7 +146,7 @@ int main() {
 		}
 
 		if ((SDL_GetTicks() - lastFrame) / 1000.0 >= 1) {
-			system("cls");
+			//system("cls");
 			std::cout << "FPS: " << FPS << "\n";
 			FPS = 0;
 			lastFrame = SDL_GetTicks();

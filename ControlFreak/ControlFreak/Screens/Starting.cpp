@@ -19,6 +19,7 @@ void btnHost_Handler() {
 }
 void btnSettings_Handler2() {
 	std::cout << "Settings clicked\n";
+	ScreenStatus::SettingsStatus = true;
 	/*Lobby::status = !Lobby::status;
 	Lobby::type = NONHOST;*/
 }
@@ -55,11 +56,10 @@ void txtJoin_Handler() {
 	}
 }
 
-Starting::Starting(Window* window, SDL_Renderer* renderer, int w, int h) : _window(window->m_Window), _w(w), _h(h)
+Starting::Starting(Window* window, SDL_Renderer* renderer, int w, int h) : _window(window->m_Window), _w(w), _h(h), _renderer(renderer)
 {
-	background = new Rect(window->m_Width, window->m_Height, 0, 0, 22, 157, 196, 255);
-	title = new Rect(window->m_Width / 2, window->m_Height / 2, window->m_Width / 4, window->m_Height / 9, bkgdMenuV3_path);
-	createButtons(renderer);
+	WINDOW = window;
+	createElements(renderer);
 }
 
 Starting::~Starting()
@@ -100,25 +100,29 @@ void Starting::draw()
 	title->draw();
 }
 
-void Starting::createButtons(SDL_Renderer* renderer)
+void Starting::createElements(SDL_Renderer* renderer)
 {
-	int btnWidth = _w / 8;
-	int btnHeight = _h / 9;
+	background = new Rect(WINDOW->m_Width, WINDOW->m_Height, 0, 0, 22, 157, 196, 255);
+	title = new Rect(WINDOW->m_Width / 2, WINDOW->m_Height / 2, WINDOW->m_Width / 4, WINDOW->m_Height / 9, bkgdMenuV3_path);
+	int btnWidth = WINDOW->m_Width / 8;
+	int btnHeight = WINDOW->m_Height / 9;
 	//int numBtns = 3;
-	int spaceInBetween = _w / 16; //quick maths
-	int spaceBelow = _h / 9;
-
-	btnHost = new ButtonV2(_window, btnWidth, btnHeight, spaceInBetween * 2.5, _h - 2 * spaceBelow, bkgdbtnHost_path, btnHost_Handler);
-	btnJoin = new ButtonV2(_window, btnWidth, btnHeight, spaceInBetween * 5.5, _h - 2 * spaceBelow, bkgdbtnJoin_path,btnJoin_Handler);
-	btnCredits = new ButtonV2(_window, btnWidth, btnHeight, spaceInBetween * 8.5, _h - 2 * spaceBelow, bkgdbtnCredit_path, btnCredits_Handler);
-	btnSettings = new ButtonV2(_window, btnWidth, btnHeight, spaceInBetween * 11.5, _h - 2 * spaceBelow, bkgdbtnSettings_path, btnSettings_Handler2);
-	txtHost = new Textbox(btnWidth, btnHeight, spaceInBetween * 2.5, _h - 2 * spaceBelow, renderer, comicFont_path, 25, "PORT=     ", txtHost_Handler);
-	txtJoin = new Textbox(btnWidth, btnHeight, spaceInBetween * 5.5, _h - 2 * spaceBelow, renderer, comicFont_path, 25, "IP=      ", txtJoin_Handler);
+	int spaceInBetween = WINDOW->m_Width / 16; //quick maths
+	int spaceBelow = WINDOW->m_Height / 9;
+	std::cout << "Height: " + std::to_string(WINDOW->m_Height) + "\n";
+	std::cout << "Width: " + std::to_string(WINDOW->m_Width) + "\n";
+	btnHost = new ButtonV2(_window, btnWidth, btnHeight, spaceInBetween * 2.5, WINDOW->m_Height - 2 * spaceBelow, bkgdbtnHost_path, btnHost_Handler);
+	btnJoin = new ButtonV2(_window, btnWidth, btnHeight, spaceInBetween * 5.5, WINDOW->m_Height - 2 * spaceBelow, bkgdbtnJoin_path,btnJoin_Handler);
+	btnCredits = new ButtonV2(_window, btnWidth, btnHeight, spaceInBetween * 8.5, WINDOW->m_Height - 2 * spaceBelow, bkgdbtnCredit_path, btnCredits_Handler);
+	btnSettings = new ButtonV2(_window, btnWidth, btnHeight, spaceInBetween * 11.5, WINDOW->m_Height - 2 * spaceBelow, bkgdbtnSettings_path, btnSettings_Handler2);
+	txtHost = new Textbox(btnWidth, btnHeight, spaceInBetween * 2.5, WINDOW->m_Height - 2 * spaceBelow, renderer, comicFont_path, 25, "PORT=     ", txtHost_Handler);
+	txtJoin = new Textbox(btnWidth, btnHeight, spaceInBetween * 5.5, WINDOW->m_Height - 2 * spaceBelow, renderer, comicFont_path, 25, "IP=      ", txtJoin_Handler);
 }
 
 
 void Starting::pollEvents(SDL_Event event)
 {
+	btnSettings->pollEvents(event);
 	btnCredits->pollEvents(event);
 	if (!Starting::txtJoinVisible)
 	{
@@ -156,3 +160,7 @@ bool Starting::getCreditsStatus()
 	return Credits::status;
 }
 
+void Starting::changeRes()
+{
+	createElements(_renderer);
+}

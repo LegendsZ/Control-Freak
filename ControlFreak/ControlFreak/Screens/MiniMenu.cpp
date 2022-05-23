@@ -3,7 +3,7 @@
 void btnSettings_Handler() {
 	ScreenStatus::SettingsStatus = true;
 	ScreenStatus::MiniMenuStatus = false;
-	ScreenStatus::LobbyStatus = false;
+	ScreenStatus::LobbyStatus = true;
 }
 void btnQuit_Handler() {
 	ScreenStatus::StartingStatus = true;
@@ -12,17 +12,18 @@ void btnQuit_Handler() {
 }
 
 
-bool MiniMenu::status = false;
 
-MiniMenu::MiniMenu(SDL_Window* window, SDL_Renderer* renderer, int w, int h): _w(w), _h(h)
+MiniMenu::MiniMenu(Window* window, SDL_Renderer* renderer, int w, int h): _w(w), _h(h), _WINDOW(window)
 {
-	background = new Rect(w, h, 0, 0, bkgdSettingsMenu_path);
-	btnSettings = new ButtonV2(window, 200, 150, (w - 200) / 2, (h - 300) / 2, bkgdSettings_path, btnSettings_Handler);
-	btnQuit = new ButtonV2(window, 200, 150, (w - 200) / 2, (h + 100) / 2, bkgdQuit_path, btnQuit_Handler);
-
+	createElements();
 }
 
-
+void MiniMenu::createElements()
+{
+	background = new Rect(_WINDOW->m_Width, _WINDOW->m_Height, 0, 0, bkgdSettingsMenu_path);
+	btnSettings = new ButtonV2(_WINDOW->m_Window, _WINDOW->m_Width / 4, _WINDOW->m_Height / 9 * 2, _WINDOW->m_Width / 16 * 6, _WINDOW->m_Height / 9 * 2, bkgdSettings_path, btnSettings_Handler);
+	btnQuit = new ButtonV2(_WINDOW->m_Window, _WINDOW->m_Width / 4, _WINDOW->m_Height / 9 * 2, _WINDOW->m_Width / 16 * 6, _WINDOW->m_Height / 9 * 5, bkgdQuit_path, btnQuit_Handler);
+}
 MiniMenu::~MiniMenu()
 {
 	btnSettings->~ButtonV2();
@@ -45,7 +46,7 @@ void MiniMenu::pollEvents(SDL_Event event)
 	btnQuit->pollEvents(event);
 }
 
-bool MiniMenu::getStatus()
+void MiniMenu::changeRes()
 {
-	return status;
+	createElements();
 }

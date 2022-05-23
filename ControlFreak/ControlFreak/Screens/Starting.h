@@ -23,10 +23,12 @@ public:
 	int _w;
 	int _h;
 	static bool status;
+	SDL_Renderer* _renderer;
 
 public:
+	void changeRes();
 	void draw();
-	void createButtons(SDL_Renderer* renderer);
+	void createElements(SDL_Renderer* renderer);
 	void pollEvents(SDL_Event event);
 	bool getLobbyStatus();
 	bool getCreditsStatus();

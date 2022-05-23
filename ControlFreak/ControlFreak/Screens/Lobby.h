@@ -17,19 +17,23 @@
 class Lobby : GameObject
 {
 public:
-	Lobby(SDL_Window* window, SDL_Renderer* renderer, int w, int h);
+	Lobby(Window* WINDOW, SDL_Renderer* renderer, int w, int h);
 	~Lobby();
 
 	void pollEvents(SDL_Event& event) override;
 	void draw() override;
 
 public:
+	Window* _WINDOW;
 	Rect* background;
 	static bool status;
 	static int type;
 	ButtonV2* btnSettings = nullptr;
+	SDL_Window* _window;
+	void changeRes();
 private:
-
+	SDL_Renderer* _renderer;
+	void createElements();
 	ButtonV2* btnUp = nullptr;
 	ButtonV2* btnDown = nullptr;
 	Listbox* listbox = nullptr;

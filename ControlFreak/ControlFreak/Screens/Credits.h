@@ -5,7 +5,7 @@
 class Credits
 {
 public:
-	Credits(SDL_Window* window, SDL_Renderer* renderer, int w, int h);
+	Credits(Window* window, SDL_Renderer* renderer, int w, int h);
 	~Credits();
 	int _w;
 	int _h;
@@ -14,10 +14,12 @@ public:
 	Text* creator1;
 	Text* creator2;
 	Text* creator3;
-
+	Window* _WINDOW;
 	void draw();
 	void pollEvents(SDL_Event event);
 	SDL_Window* _window = nullptr;
-
+	void changeRes();
+	void createElements();
+	SDL_Renderer* _renderer;
 };
 

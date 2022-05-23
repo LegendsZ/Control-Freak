@@ -15,8 +15,13 @@ public:
 	void pollEvents(SDL_Event event);
 	Rect* background;
 	Text* resolution;
-
+	void createButtons();
+	SDL_Renderer* _renderer;
+	int _w;
+	int _h;
 	static SDL_Window* _window;
 	ButtonV2* btnRes2560;
+	Window* _WINDOW;
+	void resChanged();
 
 };

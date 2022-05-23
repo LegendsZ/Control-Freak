@@ -10,19 +10,20 @@
 class MiniMenu
 {
 public:
-	MiniMenu(SDL_Window* window, SDL_Renderer* renderer, int w, int h);
+	MiniMenu(Window* window, SDL_Renderer* renderer, int w, int h);
 	~MiniMenu();
 
 
 	ButtonV2* btnQuit;
 	ButtonV2* btnSettings;
-
+	Window* _WINDOW;
 	Rect* background;
 	int _w;
 	int _h;
 	static bool status;
 	void draw();
-	void createButtons();
+	void createElements();
+	void changeRes();
 	void pollEvents(SDL_Event event);
 	bool getStatus();
 private:

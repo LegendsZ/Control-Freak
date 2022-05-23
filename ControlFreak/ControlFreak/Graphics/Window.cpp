@@ -86,6 +86,11 @@ void Window::draw()
 {
 }
 
+void Window::updateSize()
+{
+	SDL_GetWindowSize(m_Window, &m_Width, &m_Height);
+}
+
 bool Window::init() {
 	std::cout << "Initializing...";
 	if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO) != 0) {
