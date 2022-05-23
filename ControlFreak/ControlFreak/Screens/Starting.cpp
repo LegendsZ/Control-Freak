@@ -115,8 +115,8 @@ void Starting::createElements(SDL_Renderer* renderer)
 	btnJoin = new ButtonV2(_window, btnWidth, btnHeight, spaceInBetween * 5.5, WINDOW->m_Height - 2 * spaceBelow, bkgdbtnJoin_path,btnJoin_Handler);
 	btnCredits = new ButtonV2(_window, btnWidth, btnHeight, spaceInBetween * 8.5, WINDOW->m_Height - 2 * spaceBelow, bkgdbtnCredit_path, btnCredits_Handler);
 	btnSettings = new ButtonV2(_window, btnWidth, btnHeight, spaceInBetween * 11.5, WINDOW->m_Height - 2 * spaceBelow, bkgdbtnSettings_path, btnSettings_Handler2);
-	txtHost = new Textbox(btnWidth, btnHeight, spaceInBetween * 2.5, WINDOW->m_Height - 2 * spaceBelow, renderer, comicFont_path, 25, "PORT=     ", txtHost_Handler);
-	txtJoin = new Textbox(btnWidth, btnHeight, spaceInBetween * 5.5, WINDOW->m_Height - 2 * spaceBelow, renderer, comicFont_path, 25, "IP=      ", txtJoin_Handler);
+	txtHost = new Textbox(btnWidth, btnHeight, spaceInBetween * 2.5, WINDOW->m_Height - 2 * spaceBelow, renderer, comicFont_path, 25, "PORT=     ", txtHost_Handler, { 255,255,255 }, { 255,0,0 });
+	txtJoin = new Textbox(btnWidth, btnHeight, spaceInBetween * 5.5, WINDOW->m_Height - 2 * spaceBelow, renderer, comicFont_path, 25, "IP=      ", txtJoin_Handler, { 255,255,255 }, { 255,0,0 });
 }
 
 
