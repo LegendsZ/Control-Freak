@@ -114,7 +114,6 @@ int main() {
 				credit.changeRes();
 				menu.changeRes();
 				lobby.changeRes();
-				std::cout << "BITCHBITCH";
 				ScreenStatus::ResChanged = false;
 			}
 			if (ScreenStatus::SettingsStatus)
@@ -146,7 +145,7 @@ int main() {
 		}
 
 		if ((SDL_GetTicks() - lastFrame) / 1000.0 >= 1) {
-			//system("cls");
+			system("cls");
 			std::cout << "FPS: " << FPS << "\n";
 			FPS = 0;
 			lastFrame = SDL_GetTicks();

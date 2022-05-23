@@ -149,7 +149,6 @@ void Starting::pollEvents(SDL_Event event)
 	}
 }
 
-
 bool Starting::getLobbyStatus()
 {
 	return Lobby::status;
